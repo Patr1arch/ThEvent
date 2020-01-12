@@ -17,11 +17,13 @@ namespace ThEvent
         {
             InitializeComponent();
         }
-
-<<<<<<< HEAD:ThEvent/ThEvent/ThEvent/MainPage.xaml.cs
         private void RegistrateClicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new RegistrationPage());
+        }
+        private void AuthorizationClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new AuthorizationPage());
         }
 
         private void AnonymousClicked(object sender, EventArgs e)
@@ -29,11 +31,5 @@ namespace ThEvent
             Navigation.PopAsync();
             Navigation.PushAsync(new EventPage());
         }
-=======
-        private void Registrate(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new RegistrationPage());
-        }
->>>>>>> d693f504906a9c38f7b1078b0d2b9bf920c39dec:ThEvent/ThEvent/MainPage.xaml.cs
     }
 }
