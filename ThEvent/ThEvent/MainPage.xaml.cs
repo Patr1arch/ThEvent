@@ -17,10 +17,15 @@ namespace ThEvent
         {
             InitializeComponent();
         }
+        /*protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            var e = await App.Database.GetEventsAsync();
+        }*/
 
         private void Registrate(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new RegistrationPage());
+            //Navigation.PushAsync(new RegistrationPage());
         }
     }
 }

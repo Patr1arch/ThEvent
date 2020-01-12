@@ -3,14 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace ThEvent.Models
 {
-    public class Users
+    public class Event
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string SecondName { get; set; }
-        public string Email { get; set; }
+
+        public string Title { get; set; }
+        public string ShortDescription { get; set; }
+        public string FullDescription { get; set; }
     }
 }
