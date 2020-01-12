@@ -31,5 +31,9 @@ namespace ThEvent
             Navigation.PopAsync();
             Navigation.PushAsync(new EventPage());
         }
+        private void Registrate(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new RegistrationPage());
+        }
     }
 }
