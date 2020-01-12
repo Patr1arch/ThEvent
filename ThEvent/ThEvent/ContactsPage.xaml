@@ -22,7 +22,7 @@ Email: asdasdasd@mail.ru
 ICQ: 512354
             </Label>
             <Label FontAttributes="Bold"
-                   TextColor="Black"
+                   TextColor="Black" 
                    FontSize="Large"
                    Margin="20, 20, 0, 0"
                    Padding="0,0,0,10">

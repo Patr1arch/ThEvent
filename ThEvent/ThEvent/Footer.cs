@@ -11,34 +11,57 @@ namespace ThEvent
 {
     class Footer
     {
+        public static Color Color;
         public static StackLayout getFooter()
         {
-            var eventButton = new Button { Text = "Меропр", 
-                HorizontalOptions = LayoutOptions.CenterAndExpand
+            Color = Color.FromHex("#90be7f");
+
+            var eventButton = new ImageButton {
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                Source = "events.ico",
+                WidthRequest = 50,
+                HeightRequest = 50,
+                BackgroundColor = Color,
+                Margin = new Thickness(0, 10)
             };
             eventButton.Clicked += async (a, b) =>
             {
                 await App.Current.MainPage.Navigation.PushAsync(new EventPage());
             };
 
-            var rulesButton = new Button { Text = "Правила",
-                HorizontalOptions = LayoutOptions.CenterAndExpand
+            var rulesButton = new ImageButton {
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                Source = "rules.ico",
+                WidthRequest = 50,
+                HeightRequest = 50,
+                BackgroundColor = Color,
+                Margin = new Thickness(0, 20)
             };
             rulesButton.Clicked += async (a, b) =>
             {
                 await App.Current.MainPage.Navigation.PushAsync(new RulesPage());
             };
 
-            var contactsButton = new Button { Text = "Контакты",
-                HorizontalOptions = LayoutOptions.CenterAndExpand
+            var contactsButton = new ImageButton {
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                Source = "contacts.ico",
+                WidthRequest = 50,
+                HeightRequest = 50,
+                BackgroundColor = Color,
+                Margin = new Thickness(0, 20)
             };
             contactsButton.Clicked += async (a, b) =>
             {
                 await App.Current.MainPage.Navigation.PushAsync(new ContactsPage());
             };
 
-            var profileButton = new Button { Text = "Профиль",
-                HorizontalOptions = LayoutOptions.CenterAndExpand
+            var profileButton = new ImageButton {
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                Source = "profile.ico",
+                WidthRequest = 50,
+                HeightRequest = 50,
+                BackgroundColor = Color,
+                Margin = new Thickness(0, 20)
             };
             profileButton.Clicked += async (a, b) => {
                 await App.Current.MainPage.Navigation.PushAsync(new ProfilePage());
@@ -52,7 +75,7 @@ namespace ThEvent
                 },
                 VerticalOptions = LayoutOptions.EndAndExpand,
                 Orientation = StackOrientation.Horizontal,
-                BackgroundColor = Color.Gray
+                BackgroundColor = Color
             };
 
             return footerStackLayout;
