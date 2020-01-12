@@ -10,7 +10,7 @@ namespace ThEvent
 {
     public partial class App : Application
     {
-        /*static ThEventDatabase database;
+        static ThEventDatabase database;
         public static ThEventDatabase Database
         {
             get
@@ -21,11 +21,11 @@ namespace ThEvent
                 }
                 return database;
             }
-        }*/
-
+        }
         public App()
         {
             InitializeComponent();
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()

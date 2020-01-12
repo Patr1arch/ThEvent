@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ThEvent.Models
 {
-    public class Users
+    public class User
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
