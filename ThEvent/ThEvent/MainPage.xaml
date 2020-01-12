@@ -21,7 +21,8 @@
                     HorizontalOptions="Start" Text="Аноним" Margin="60,0,0,0"
                     ></Button>
                 <Button WidthRequest="150" HeightRequest="100"
-                    HorizontalOptions="End" Text="Регистрация"></Button>
+                    HorizontalOptions="End" Text="Регистрация"
+                        Clicked="Registrate"></Button>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

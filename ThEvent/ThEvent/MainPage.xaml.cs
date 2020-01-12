@@ -17,5 +17,10 @@ namespace ThEvent
         {
             InitializeComponent();
         }
+
+        private void Registrate(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new RegistrationPage());
+        }
     }
 }
