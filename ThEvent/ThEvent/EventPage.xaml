@@ -6,6 +6,15 @@
              mc:Ignorable="d"
              x:Class="ThEvent.EventPage"
              NavigationPage.HasBackButton="False">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="Logout"
+                     Text="choose city"
+                     Order="Primary"
+                     IconImageSource="logout.png"
+                     Clicked="LogoutClicked"/>
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
         <StackLayout x:Name="PageStackLayout">
             <Label Text="Event"

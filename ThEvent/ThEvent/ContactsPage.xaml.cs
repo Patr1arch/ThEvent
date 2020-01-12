@@ -17,7 +17,12 @@ namespace ThEvent
             InitializeComponent();
             var footer = Footer.getFooter();
             PageStackLayout.Children.Add(footer);
-            
+
+        }
+
+        private void LogoutClicked(object sender, EventArgs e)
+        {
+            Navigation.PopToRootAsync();
         }
     }
 }

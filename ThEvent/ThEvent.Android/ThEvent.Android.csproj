@@ -84,7 +84,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\logout.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ThEvent\ThEvent.csproj">
       <Project>{B8742F9A-E9B0-4C86-A0CA-92B23546BF23}</Project>
