@@ -18,7 +18,20 @@ namespace ThEvent
         {
             InitializeComponent();
         }
+        private void RegistrateClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new RegistrationPage());
+        }
+        private void AuthorizationClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new AuthorizationPage());
+        }
 
+        private void AnonymousClicked(object sender, EventArgs e)
+        {
+            Navigation.PopAsync();
+            Navigation.PushAsync(new EventPage());
+        }
         private void Registrate(object sender, EventArgs e)
         {
             Navigation.PushAsync(new RegistrationPage());

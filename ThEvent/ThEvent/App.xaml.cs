@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using SQLite;
 using ThEvent.Data;
 using ThEvent.Models;
 using System.IO;
@@ -24,7 +25,6 @@ namespace ThEvent
         public App()
         {
             InitializeComponent();
-
             MainPage = new NavigationPage(new MainPage());
         }
 

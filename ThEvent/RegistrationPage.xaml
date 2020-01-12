@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="ThEvent.RegistrationPage" Title="Регистрация">
+             x:Class="ThEvent.RegistrationPage">
     <ContentPage.Content>
         <StackLayout x:Name="Page_Stack_Layout">
             <StackLayout Margin="10,10,10,10" VerticalOptions="CenterAndExpand">
@@ -24,8 +24,7 @@
                    TextChanged="Check_Password"></Entry>
                 <StackLayout Orientation="Horizontal">
                     <Button Text="Зарегистрироваться"></Button>
-                    <Button Text="Уже есть аккаунт?" 
-                            Clicked="AuthorizationClicked"></Button>
+                    <Button Text="Уже есть аккаунт?"></Button>
                 </StackLayout>
             </StackLayout>
         </StackLayout>

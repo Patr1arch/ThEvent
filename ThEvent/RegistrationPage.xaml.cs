@@ -29,11 +29,5 @@ namespace ThEvent
                 password.BackgroundColor = Color.Red;
             }
         }
-
-        private void AuthorizationClicked(object sender, EventArgs e)
-        {
-            Navigation.PopAsync();
-            Navigation.PushAsync(new AuthorizationPage());
-        }
     }
 }

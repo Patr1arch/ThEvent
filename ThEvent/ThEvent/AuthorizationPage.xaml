@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ThEvent.AuthorizationPage"
+             Title="Вход">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center"
+                     Margin="10, 10, 10, 10">
+            <Entry Placeholder="Ваша почта"
+                   HorizontalOptions="Fill"></Entry>
+            <Entry Placeholder="Пароль"
+                   IsPassword="True"
+                   HorizontalOptions="Fill"></Entry>
+            <StackLayout Orientation="Horizontal">
+                <CheckBox HorizontalOptions="EndAndExpand" ></CheckBox>
+                <Label Text="Запомнить меня" 
+                       FontSize="Title"></Label>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Войти" ></Button>
+                <Button Text="Ещё нет аккаунта?"
+                        Clicked="RegistrateClicked"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
