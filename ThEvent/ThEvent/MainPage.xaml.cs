@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using ThEvent.Models;
 
 namespace ThEvent
 {
@@ -17,16 +18,23 @@ namespace ThEvent
         {
             InitializeComponent();
         }
-
         private void RegistrateClicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new RegistrationPage());
+        }
+        private void AuthorizationClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new AuthorizationPage());
         }
 
         private void AnonymousClicked(object sender, EventArgs e)
         {
             Navigation.PopAsync();
             Navigation.PushAsync(new EventPage());
+        }
+        private void Registrate(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new RegistrationPage());
         }
     }
 }

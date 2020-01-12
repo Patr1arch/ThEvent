@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="ThEvent.MainPage">
+             x:Class="ThEvent.MainPage" Title="Страница входа">
 
     <ContentPage.Content>
         <StackLayout x:Name="Page_Stack_Layout">
@@ -15,7 +15,8 @@
             <Button VerticalOptions="CenterAndExpand" Margin="0,100,0,0"
                     HorizontalOptions="Center"
                     WidthRequest="200" Text="ВОЙТИ"
-                    HeightRequest="100"/>
+                    HeightRequest="100"
+                    Clicked="AuthorizationClicked"/>
             <StackLayout Orientation="Horizontal" 
                          VerticalOptions="CenterAndExpand">
                 <Button WidthRequest="150" 
