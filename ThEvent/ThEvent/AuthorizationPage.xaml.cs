@@ -7,6 +7,8 @@ using ThEvent.Models;
 using ThEvent.Data;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.IO;
+using Newtonsoft.Json.Linq;
 
 namespace ThEvent
 {
@@ -16,6 +18,18 @@ namespace ThEvent
         public AuthorizationPage()
         {
             InitializeComponent();
+
+            Appearing += (s, e) =>
+            {
+                string logPasFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "keepMe.json");
+                if (File.Exists(logPasFile))
+                {
+                    KeepMe.IsChecked = true;
+                    JObject logPas = JObject.Parse(File.ReadAllText(logPasFile));
+                    Email.Text = logPas["email"].ToString();
+                    Password.Text = logPas["password"].ToString();
+                }
+            };
         }
 
         private void RegistrateClicked(object sender, EventArgs e)
@@ -35,6 +49,24 @@ namespace ThEvent
 
             if (user.Any())
             {
+                if (KeepMe.IsChecked)
+                {
+                    string logPasFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "keepMe.json");
+                    JObject logPas = new JObject(
+                        new JProperty("email", Email.Text),
+                        new JProperty("password", Password.Text)
+                        );
+                    File.WriteAllText(logPasFile, logPas.ToString());
+                }
+                else
+                {
+                    string logPasFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "keepMe.json");
+                    if (File.Exists(logPasFile))
+                    {
+                        File.Delete(logPasFile);
+                    }
+                }
+
                 App.IsAnonym = false;
                 Navigation.PopAsync();
                 Navigation.PushAsync(new EventPage());

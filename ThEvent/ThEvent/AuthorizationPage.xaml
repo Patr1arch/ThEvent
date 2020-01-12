@@ -17,9 +17,9 @@
                    IsPassword="True"
                    HorizontalOptions="Fill"/>
             <StackLayout Orientation="Horizontal">
-                <CheckBox HorizontalOptions="EndAndExpand"/>
-                <Label x:Name="keepMe"
-                       Text="Запомнить меня" 
+                <CheckBox x:Name="KeepMe"
+                          HorizontalOptions="EndAndExpand"/>
+                <Label Text="Запомнить меня" 
                        FontSize="Title"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
