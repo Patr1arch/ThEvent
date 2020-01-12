@@ -108,7 +108,7 @@ namespace ThEvent
                     if (checkEmail.isVerified)
                     {
                         App.Database.SaveUserAsync(newUser);
-                        App.IsAnonym = false;
+                        App.UserId = newUser.Id;
                         Navigation.PopAsync();
                         Navigation.PushAsync(new EventPage());
                     }

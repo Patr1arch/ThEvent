@@ -81,7 +81,7 @@ namespace ThEvent
                     }
                 }
 
-                App.IsAnonym = false;
+                App.UserId = user[0].Id;
                 Navigation.PopAsync();
                 Navigation.PushAsync(new EventPage());
             }
