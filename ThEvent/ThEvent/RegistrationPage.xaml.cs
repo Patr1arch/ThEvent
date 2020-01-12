@@ -8,6 +8,7 @@ using ThEvent.Data;
 using SQLite;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Text.RegularExpressions;
 
 namespace ThEvent
 {
@@ -29,7 +30,7 @@ namespace ThEvent
             else
             {
                 password.BackgroundColor = Color.Red;
-                password.BackgroundColor = Color.Red;
+                checkPassword.BackgroundColor = Color.Red;
             }
         }
 
@@ -41,17 +42,44 @@ namespace ThEvent
 
         private void ConfirmClicked(object sender, EventArgs e)
         {
-            // TODO check if all enties was filled
-            
-            App.Database.SaveUserAsync(
-                new User
+            string pattern = "[.\\-_a-z0-9]+@([a-z0-9][\\-a-z0-9]+\\.)+[a-z]{2,6}";       
+
+            if (!String.IsNullOrEmpty(Name.Text) &&
+                !String.IsNullOrEmpty(SecondName.Text) &&
+                !String.IsNullOrEmpty(Email.Text) &&
+                Regex.Match(Email.Text, pattern, RegexOptions.IgnoreCase).Success &&
+                Sex.SelectedIndex != -1 &&
+                !String.IsNullOrEmpty(password.Text) &&
+                String.Equals(password.Text, checkPassword.Text))
+
+            {
+                App.Database.SaveUserAsync(
+                    new User
+                    {
+                        FirstName = Name.Text,
+                        SecondName = SecondName.Text,
+                        Email = Email.Text
+                    });
+                Navigation.PopAsync();
+                Navigation.PushAsync(new EventPage());
+            }
+            else
+            {
+                Incorrect.IsVisible = true;
+                if (String.IsNullOrEmpty(Name.Text)) Name.BackgroundColor = Color.Red;
+                if (String.IsNullOrEmpty(SecondName.Text)) SecondName.BackgroundColor = Color.Red;
+                if (Sex.SelectedIndex == -1) Sex.BackgroundColor = Color.Red;
+                if (String.IsNullOrEmpty(Email.Text)
+                    || !Regex.Match(Email.Text, pattern, RegexOptions.IgnoreCase).Success) Email.BackgroundColor = Color.Red;
+                if (!String.Equals(password.Text, checkPassword.Text))
                 {
-                    FirstName = Name.Text,
-                    SecondName = SecondName.Text,
-                    Email = Email.Text
-                });
-            Navigation.PopAsync();
-            Navigation.PushAsync(new EventPage());
+                    password.BackgroundColor = Color.Red;
+                    checkPassword.BackgroundColor = Color.Red;
+                }
+                if (String.IsNullOrEmpty(password.Text)) password.BackgroundColor = Color.Red;
+                if (String.IsNullOrEmpty(checkPassword.Text)) checkPassword.BackgroundColor = Color.Red;
+            }
+            
 
             List<User> debug = App.Database.GetUsersAsync().Result;
         }
