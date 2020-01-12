@@ -22,6 +22,11 @@
                 <Label Text="Запомнить меня" 
                        FontSize="Title"/>
             </StackLayout>
+            <Label x:Name="IncorrectSignIn"
+                   Text="Некорретная почта и/или пароль"
+                   TextColor="Red"
+                   FontSize="Large"
+                   IsVisible="False"/>
             <StackLayout Orientation="Horizontal">
                 <Button x:Name="Confirm"
                         Text="Войти"

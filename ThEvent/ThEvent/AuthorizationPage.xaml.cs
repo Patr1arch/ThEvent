@@ -19,6 +19,20 @@ namespace ThEvent
         {
             InitializeComponent();
 
+            Email.TextChanged += (sender_, e_) =>
+            {
+                Email.BackgroundColor = Color.Default;
+                Password.BackgroundColor = Color.Default;
+                IncorrectSignIn.IsVisible = false;
+            };
+
+            Password.TextChanged += (sender_, e_) =>
+            {
+                Email.BackgroundColor = Color.Default;
+                Password.BackgroundColor = Color.Default;
+                IncorrectSignIn.IsVisible = false;
+            };
+
             Appearing += (s, e) =>
             {
                 string logPasFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "keepMe.json");
@@ -70,6 +84,12 @@ namespace ThEvent
                 App.IsAnonym = false;
                 Navigation.PopAsync();
                 Navigation.PushAsync(new EventPage());
+            }
+            else
+            {
+                IncorrectSignIn.IsVisible = true;
+                Email.BackgroundColor = Color.Red;
+                Password.BackgroundColor = Color.Red;
             }
         }
     }

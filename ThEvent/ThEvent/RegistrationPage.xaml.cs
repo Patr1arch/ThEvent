@@ -20,6 +20,30 @@ namespace ThEvent
         public RegistrationPage()
         {
             InitializeComponent();
+            Name.TextChanged += (sender_, e_) =>
+            {
+                Name.BackgroundColor = Color.Default;
+                Incorrect.IsVisible = false;
+            };
+
+            SecondName.TextChanged += (sender_, e_) =>
+            {
+                SecondName.BackgroundColor = Color.Default;
+                Incorrect.IsVisible = false;
+            };
+
+            Email.TextChanged += (sender_, e_) =>
+            {
+                Email.BackgroundColor = Color.Default;
+                Incorrect.IsVisible = false;
+            };
+
+            Sex.SelectedIndexChanged += (sender_, e_) =>
+            {
+                Sex.BackgroundColor = Color.Default;
+                Incorrect.IsVisible = false;
+            };
+
         }
 
         private void Check_Password(object sender, EventArgs e)
@@ -28,6 +52,7 @@ namespace ThEvent
             {
                 password.BackgroundColor = Color.Green;
                 checkPassword.BackgroundColor = Color.Green;
+                Incorrect.IsVisible = false;
             }
             else
             {
@@ -109,6 +134,11 @@ namespace ThEvent
             
 
             List<User> debug = App.Database.GetUsersAsync().Result;
+        }
+
+        private void Name_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
