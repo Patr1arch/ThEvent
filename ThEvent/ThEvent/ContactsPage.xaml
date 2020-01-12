@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ThEvent.ContactsPage">
+    <ContentPage.Content>
+        <StackLayout x:Name="PageStackLayout">
+            <Label FontAttributes="Bold"
+                   TextColor="Black"
+                   FontSize="Large"
+                   Margin="20, 20, 0, 0"
+                   Padding="0,0,0,10">
+                Владивосток:</Label>
+            <Label TextColor="Black"
+                   FontSize="17"
+                   LineHeight="1.5" 
+                   VerticalOptions="End"
+                   Margin="20, 0">Номер телефона: 821391293
+Email: asdasdasd@mail.ru
+ICQ: 512354
+            </Label>
+            <Label FontAttributes="Bold"
+                   TextColor="Black"
+                   FontSize="Large"
+                   Margin="20, 20, 0, 0"
+                   Padding="0,0,0,10">
+                Часы работы:</Label>
+            <Label TextColor="Black"
+                   FontSize="17"
+                   LineHeight="1.5" 
+                   VerticalOptions="End"
+                   Margin="20, 0">
+Понедельник-пятница: c 8 до 22
+Суббота: c 8 до 18
+Воскресенье: с 9 до 16
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

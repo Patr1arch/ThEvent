@@ -15,14 +15,20 @@
             <Button VerticalOptions="CenterAndExpand" Margin="0,100,0,0"
                     HorizontalOptions="Center"
                     WidthRequest="200" Text="ВОЙТИ"
-                    HeightRequest="100"></Button>
-            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
-                <Button WidthRequest="150" HeightRequest="100"
-                    HorizontalOptions="Start" Text="Аноним" Margin="60,0,0,0"
-                    ></Button>
-                <Button WidthRequest="150" HeightRequest="100"
-                    HorizontalOptions="End" Text="Регистрация"
-                        Clicked="Registrate"></Button>
+                    HeightRequest="100"/>
+            <StackLayout Orientation="Horizontal" 
+                         VerticalOptions="CenterAndExpand">
+                <Button WidthRequest="150" 
+                        HeightRequest="100"
+                        HorizontalOptions="Start" 
+                        Text="Аноним" 
+                        Margin="60,0,0,0"
+                        Clicked="AnonymousClicked"/>
+                <Button WidthRequest="150" 
+                        HeightRequest="100"
+                        HorizontalOptions="End" 
+                        Text="Регистрация"
+                        Clicked="RegistrateClicked"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

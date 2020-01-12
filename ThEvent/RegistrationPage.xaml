@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ThEvent.RegistrationPage">
+    <ContentPage.Content>
+        <StackLayout x:Name="Page_Stack_Layout">
+            <StackLayout Margin="10,10,10,10" VerticalOptions="CenterAndExpand">
+                <Entry Placeholder="Ваше имя" HorizontalOptions="Fill"></Entry>
+                <Entry Placeholder="Ваша фамилия" HorizontalOptions="Fill"></Entry>
+                <Entry Placeholder="Ваша почта" HorizontalOptions="Fill"></Entry>
+                <Picker Title="Укажите пол" HorizontalOptions="Fill">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Мужской</x:String>
+                            <x:String>Женский</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Entry x:Name="password" IsPassword="True" Placeholder="Пароль" HorizontalOptions="Fill"></Entry>
+                <Entry x:Name="checkPassword" IsPassword="True" Placeholder="Повторите пароль" HorizontalOptions="Fill"
+                   TextChanged="Check_Password"></Entry>
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Зарегистрироваться"></Button>
+                    <Button Text="Уже есть аккаунт?"></Button>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
