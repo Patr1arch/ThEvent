@@ -10,7 +10,7 @@ namespace ThEvent
 {
     public partial class App : Application
     {
-        public bool IsAnonym = true;
+        public static bool IsAnonym = true;
 
         static ThEventDatabase database;
         public static ThEventDatabase Database

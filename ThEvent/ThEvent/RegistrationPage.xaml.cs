@@ -61,6 +61,7 @@ namespace ThEvent
                         Email = Email.Text,
                         Password = password.Text
                     });
+                App.IsAnonym = false;
                 Navigation.PopAsync();
                 Navigation.PushAsync(new EventPage());
             }

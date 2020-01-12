@@ -35,6 +35,7 @@ namespace ThEvent
 
             if (user.Any())
             {
+                App.IsAnonym = false;
                 Navigation.PopAsync();
                 Navigation.PushAsync(new EventPage());
             }
