@@ -8,10 +8,18 @@
     <ContentPage.Content>
         <StackLayout x:Name="Page_Stack_Layout">
             <StackLayout Margin="10,10,10,10" VerticalOptions="CenterAndExpand">
-                <Entry Placeholder="Ваше имя" HorizontalOptions="Fill"></Entry>
-                <Entry Placeholder="Ваша фамилия" HorizontalOptions="Fill"></Entry>
-                <Entry Placeholder="Ваша почта" HorizontalOptions="Fill"></Entry>
-                <Picker Title="Укажите пол" HorizontalOptions="Fill">
+                <Entry x:Name="Name"
+                       Placeholder="Ваше имя"
+                       HorizontalOptions="Fill"/>
+                <Entry x:Name="SecondName"
+                       Placeholder="Ваша фамилия"
+                       HorizontalOptions="Fill"/>
+                <Entry x:Name="Email"
+                       Placeholder="Ваша почта"
+                       HorizontalOptions="Fill"/>
+                <Picker x:Name="Sex"
+                        Title="Укажите пол"
+                        HorizontalOptions="Fill">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Мужской</x:String>
@@ -23,7 +31,8 @@
                 <Entry x:Name="checkPassword" IsPassword="True" Placeholder="Повторите пароль" HorizontalOptions="Fill"
                    TextChanged="Check_Password"></Entry>
                 <StackLayout Orientation="Horizontal">
-                    <Button Text="Зарегистрироваться"></Button>
+                    <Button Text="Зарегистрироваться"
+                            Clicked="ConfirmClicked"></Button>
                     <Button Text="Уже есть аккаунт?" 
                             Clicked="AuthorizationClicked"></Button>
                 </StackLayout>
