@@ -9,20 +9,26 @@
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center"
                      Margin="10, 10, 10, 10">
-            <Entry Placeholder="Ваша почта"
-                   HorizontalOptions="Fill"></Entry>
-            <Entry Placeholder="Пароль"
+            <Entry x:Name="Email"
+                   Placeholder="Ваша почта"
+                   HorizontalOptions="Fill"/>
+            <Entry x:Name="Password"
+                   Placeholder="Пароль"
                    IsPassword="True"
-                   HorizontalOptions="Fill"></Entry>
+                   HorizontalOptions="Fill"/>
             <StackLayout Orientation="Horizontal">
-                <CheckBox HorizontalOptions="EndAndExpand" ></CheckBox>
-                <Label Text="Запомнить меня" 
-                       FontSize="Title"></Label>
+                <CheckBox HorizontalOptions="EndAndExpand"/>
+                <Label x:Name="keepMe"
+                       Text="Запомнить меня" 
+                       FontSize="Title"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Button Text="Войти" ></Button>
-                <Button Text="Ещё нет аккаунта?"
-                        Clicked="RegistrateClicked"></Button>
+                <Button x:Name="Confirm"
+                        Text="Войти"
+                        Clicked="ConfirmClicked"/>
+                <Button x:Name="Registrate"
+                        Text="Ещё нет аккаунта?"
+                        Clicked="RegistrateClicked"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

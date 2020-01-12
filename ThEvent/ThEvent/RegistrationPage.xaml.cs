@@ -58,7 +58,8 @@ namespace ThEvent
                     {
                         FirstName = Name.Text,
                         SecondName = SecondName.Text,
-                        Email = Email.Text
+                        Email = Email.Text,
+                        Password = password.Text
                     });
                 Navigation.PopAsync();
                 Navigation.PushAsync(new EventPage());
