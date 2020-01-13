@@ -13,6 +13,9 @@
                      Order="Primary"
                      IconImageSource="logout.png"
                      Clicked="LogoutClicked"/>
+        <ToolbarItem Text="+" 
+                     Clicked="AddClicked"
+                     IconImageSource="addEvent.png"/>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
@@ -20,15 +23,18 @@
                      BackgroundColor="#99DF7F">
             <Label HorizontalTextAlignment="Center"
                    Text="Наши мероприятия!"
-                   Margin="0, 10, 0, 0" 
+                   Margin="0, 5, 0, 0" 
                    FontAttributes="Bold"
                    TextColor="Black"
                    FontSize="25"
                    BackgroundColor="AliceBlue"/>
             <StackLayout Orientation="Horizontal">
-                <Button Text="Выбрать фильтр"/>
-                <Button Text="Применить"/>
-                <Button Text="Очистить"/>
+                <Button Text="Выбрать фильтр"
+                        HorizontalOptions="CenterAndExpand"/>
+                <Button Text="Применить"
+                        HorizontalOptions="CenterAndExpand"/>
+                <Button Text="Очистить"
+                        HorizontalOptions="CenterAndExpand"/>
             </StackLayout>
             <ScrollView>
             <Grid Margin="5">
@@ -41,10 +47,21 @@
                               Grid.Column="0" 
                               VerticalOptions="Start">
                     <!--
-                    <Frame BorderColor="Accent">
+                    <Frame BorderColor="#078731" 
+                           Padding="8">
                         <StackLayout>
-                            <Button Text="asdas"/>
-                            <Label>asdasd</Label>
+                                <Label
+                                    TextColor="Black"
+                                    FontAttributes="Bold">
+                                    Чтобы мышцы росли как на дрожах, нужно всего лишь капля простого ...
+                                </Label>
+                                <Image BackgroundColor="Accent"
+                                    HeightRequest="140"
+                                    Source="https://sun9-48.userapi.com/c200828/v200828821/352cf/NHXlNXqYXow.jpg"></Image>
+                                <Label VerticalOptions="End"
+                                       HorizontalOptions="Start">
+                                    01:23:32
+                                </Label>
                         </StackLayout>
                     </Frame>
                     -->

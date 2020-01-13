@@ -24,9 +24,16 @@ namespace ThEvent
             {
                 Frame frame = new Frame
                 {
-                    BorderColor = Color.Accent
+                    BorderColor = Color.FromHex("#FF078731"),
+                    Padding = 8
                 };
 
+                Label HeadlineLabel = new Label
+                {
+                    Text = "Чтобы мышцы росли как на дрожах, нужно всего лишь капля простого ...", // ev.HeadLine
+                    FontAttributes = FontAttributes.Bold,
+                    TextColor = Color.Black
+                };
                 Image image = new Image
                 {
                     // ev.ImageURL
@@ -40,14 +47,10 @@ namespace ThEvent
                     VerticalOptions = LayoutOptions.End,
                     HorizontalTextAlignment = TextAlignment.Start
                 };
-                Label descriptionLabel = new Label
-                {
-                    Text = "Тут краткое описание, шикардосик. Приходите, Дадим поесть" // ev.ShortDescription
-                };
 
                 StackLayout stackLayout = new StackLayout
                 {
-                    Children = {image, dateLabel, descriptionLabel}
+                    Children = {HeadlineLabel, image, dateLabel}
                 };
                 frame.Content = stackLayout;
                 if (i % 2 == 0)
@@ -65,6 +68,11 @@ namespace ThEvent
         private void LogoutClicked(object sender, EventArgs e)
         {
             Navigation.PopToRootAsync();
+        }
+
+        private void AddClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new AddEventPage());
         }
     }
 }
