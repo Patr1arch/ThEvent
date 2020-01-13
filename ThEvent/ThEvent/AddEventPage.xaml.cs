@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace ThEvent
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AddEventPage : ContentPage
+    public partial class AddEventListPage : ContentPage
     {
-        public AddEventPage()
+        public AddEventListPage()
         {
             InitializeComponent();
         }

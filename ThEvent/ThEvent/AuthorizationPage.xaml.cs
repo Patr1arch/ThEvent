@@ -83,7 +83,7 @@ namespace ThEvent
 
                 App.UserId = user[0].Id;
                 Navigation.PopAsync();
-                Navigation.PushAsync(new EventPage());
+                Navigation.PushAsync(new EventListPage());
             }
             else
             {

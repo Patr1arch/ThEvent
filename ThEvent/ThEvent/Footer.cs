@@ -34,7 +34,7 @@ namespace ThEvent
             var eventButton = createImButtonForFooter("events.ico");
             eventButton.Clicked += async (a, b) =>
             {
-                await App.Current.MainPage.Navigation.PushAsync(new EventPage());
+                await App.Current.MainPage.Navigation.PushAsync(new EventListPage());
             };
 
             var rulesButton = createImButtonForFooter("rules.ico");

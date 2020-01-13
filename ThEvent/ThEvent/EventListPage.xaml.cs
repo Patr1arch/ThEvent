@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace ThEvent
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class EventPage : ContentPage
+    public partial class EventListPage : ContentPage
     {
-        public EventPage()
+        public EventListPage()
         {
             InitializeComponent();
             var footer = Footer.getFooter();
@@ -72,7 +72,7 @@ namespace ThEvent
 
         private void AddClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new AddEventPage());
+            Navigation.PushAsync(new AddEventListPage());
         }
     }
 }

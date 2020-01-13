@@ -110,7 +110,7 @@ namespace ThEvent
                         App.Database.SaveUserAsync(newUser);
                         App.UserId = newUser.Id;
                         Navigation.PopAsync();
-                        Navigation.PushAsync(new EventPage());
+                        Navigation.PushAsync(new EventListPage());
                     }
                 };
                 Navigation.PushAsync(checkEmail);

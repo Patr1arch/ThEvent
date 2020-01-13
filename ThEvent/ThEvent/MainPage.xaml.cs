@@ -30,7 +30,7 @@ namespace ThEvent
         private void AnonymousClicked(object sender, EventArgs e)
         {
             Navigation.PopAsync();
-            Navigation.PushAsync(new EventPage());
+            Navigation.PushAsync(new EventListPage());
         }
         private void Registrate(object sender, EventArgs e)
         {
