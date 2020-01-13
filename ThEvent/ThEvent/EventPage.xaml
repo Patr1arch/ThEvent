@@ -16,22 +16,53 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <StackLayout x:Name="PageStackLayout">
+        <StackLayout x:Name="PageStackLayout"
+                     BackgroundColor="#99DF7F">
             <Label HorizontalTextAlignment="Center"
                    Text="Наши мероприятия!"
-                   Margin="0, 10" 
+                   Margin="0, 10, 0, 0" 
                    FontAttributes="Bold"
                    TextColor="Black"
-                   FontSize="25"/>
-            <Button Text="Filter"/>
-            <Grid>
-                <StackLayout BackgroundColor="Accent">
-                    <Label> asdasd</Label>
+                   FontSize="25"
+                   BackgroundColor="AliceBlue"/>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Выбрать фильтр"/>
+                <Button Text="Применить"/>
+                <Button Text="Очистить"/>
+            </StackLayout>
+            <ScrollView>
+            <Grid Margin="5">
+                
+                    <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackLayout  x:Name="leftStLt" 
+                              Grid.Column="0" 
+                              VerticalOptions="Start">
+                    <!--
+                    <Frame BorderColor="Accent">
+                        <StackLayout>
+                            <Button Text="asdas"/>
+                            <Label>asdasd</Label>
+                        </StackLayout>
+                    </Frame>
+                    -->
                 </StackLayout>
-                <StackLayout>
-                    <Label>asdasd</Label>
+
+                <StackLayout x:Name="rightStLt" 
+                             Grid.Column="1" 
+                             VerticalOptions="Start">
+                    <!--<Frame BorderColor="Accent">
+                        <StackLayout>
+                            <Button Text="asdas"/>
+                            <Label>asdasd</Label>
+
+                        </StackLayout>
+                    </Frame> -->
                 </StackLayout>
             </Grid>
+            </ScrollView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
