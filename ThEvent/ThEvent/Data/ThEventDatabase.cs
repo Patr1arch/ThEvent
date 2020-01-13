@@ -9,7 +9,7 @@ namespace ThEvent.Data
 {
     public class ThEventDatabase
     {
-        readonly SQLiteAsyncConnection _database;
+        public readonly SQLiteAsyncConnection _database;
         public ThEventDatabase(string dbPath)
         {
             _database = new SQLiteAsyncConnection(dbPath);

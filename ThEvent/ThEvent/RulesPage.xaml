@@ -4,7 +4,17 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="ThEvent.RulesPage">
+             x:Class="ThEvent.RulesPage"
+             NavigationPage.HasBackButton="False">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="Logout"
+                     Text="choose city"
+                     Order="Primary"
+                     IconImageSource="logout.png"
+                     Clicked="LogoutClicked"/>
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
         <StackLayout x:Name="PageStackLayout">
             <Label FontAttributes="Bold"

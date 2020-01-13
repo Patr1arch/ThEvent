@@ -8,6 +8,9 @@ using ThEvent.Data;
 using SQLite;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Text.RegularExpressions;
+using System.Net;
+using System.Net.Mail;
 
 namespace ThEvent
 {
@@ -17,6 +20,30 @@ namespace ThEvent
         public RegistrationPage()
         {
             InitializeComponent();
+            Name.TextChanged += (sender_, e_) =>
+            {
+                Name.BackgroundColor = Color.Default;
+                Incorrect.IsVisible = false;
+            };
+
+            SecondName.TextChanged += (sender_, e_) =>
+            {
+                SecondName.BackgroundColor = Color.Default;
+                Incorrect.IsVisible = false;
+            };
+
+            Email.TextChanged += (sender_, e_) =>
+            {
+                Email.BackgroundColor = Color.Default;
+                Incorrect.IsVisible = false;
+            };
+
+            Sex.SelectedIndexChanged += (sender_, e_) =>
+            {
+                Sex.BackgroundColor = Color.Default;
+                Incorrect.IsVisible = false;
+            };
+
         }
 
         private void Check_Password(object sender, EventArgs e)
@@ -25,11 +52,12 @@ namespace ThEvent
             {
                 password.BackgroundColor = Color.Green;
                 checkPassword.BackgroundColor = Color.Green;
+                Incorrect.IsVisible = false;
             }
             else
             {
                 password.BackgroundColor = Color.Red;
-                password.BackgroundColor = Color.Red;
+                checkPassword.BackgroundColor = Color.Red;
             }
         }
 
@@ -41,19 +69,76 @@ namespace ThEvent
 
         private void ConfirmClicked(object sender, EventArgs e)
         {
-            // TODO check if all enties was filled
-            
-            App.Database.SaveUserAsync(
-                new User
+            string pattern = "[.\\-_a-z0-9]+@([a-z0-9][\\-a-z0-9]+\\.)+[a-z]{2,6}";       
+
+            if (!String.IsNullOrEmpty(Name.Text) &&
+                !String.IsNullOrEmpty(SecondName.Text) &&
+                !String.IsNullOrEmpty(Email.Text) &&
+                Regex.Match(Email.Text, pattern, RegexOptions.IgnoreCase).Success &&
+                Sex.SelectedIndex != -1 &&
+                !String.IsNullOrEmpty(password.Text) &&
+                String.Equals(password.Text, checkPassword.Text))
+
+            {
+                User newUser = new User
                 {
                     FirstName = Name.Text,
                     SecondName = SecondName.Text,
-                    Email = Email.Text
-                });
-            Navigation.PopAsync();
-            Navigation.PushAsync(new EventPage());
+                    Email = Email.Text,
+                    Password = password.Text
+                };
+                CheckEmailPage checkEmail = new CheckEmailPage();
+
+                checkEmail.Appearing += (sender_, e_) =>
+                {
+                    MailAddress from = new MailAddress("thevent2020@mail.ru", "ThEvent-no-reply");
+                    MailAddress to = new MailAddress(newUser.Email);
+                    MailMessage m = new MailMessage(from, to);
+                    m.Subject = "Код авторизации";
+                    m.Body = "<h2>Код авторизации: </h2><h1>" + checkEmail.verifyCode.ToString() + "</h1><h3>Никому ему не говорите!</h3>";
+                    m.IsBodyHtml = true;
+                    SmtpClient smtp = new SmtpClient("smtp.mail.ru", 2525);
+                    smtp.Credentials = new NetworkCredential("thevent2020@mail.ru", "S_fgnz4P%5");
+                    smtp.EnableSsl = true;
+                    smtp.Send(m);
+                };
+
+                checkEmail.Disappearing += (sender_, e_) =>
+                {
+                    if (checkEmail.isVerified)
+                    {
+                        App.Database.SaveUserAsync(newUser);
+                        App.UserId = newUser.Id;
+                        Navigation.PopAsync();
+                        Navigation.PushAsync(new EventPage());
+                    }
+                };
+                Navigation.PushAsync(checkEmail);
+            }
+            else
+            {
+                Incorrect.IsVisible = true;
+                if (String.IsNullOrEmpty(Name.Text)) Name.BackgroundColor = Color.Red;
+                if (String.IsNullOrEmpty(SecondName.Text)) SecondName.BackgroundColor = Color.Red;
+                if (Sex.SelectedIndex == -1) Sex.BackgroundColor = Color.Red;
+                if (String.IsNullOrEmpty(Email.Text)
+                    || !Regex.Match(Email.Text, pattern, RegexOptions.IgnoreCase).Success) Email.BackgroundColor = Color.Red;
+                if (!String.Equals(password.Text, checkPassword.Text))
+                {
+                    password.BackgroundColor = Color.Red;
+                    checkPassword.BackgroundColor = Color.Red;
+                }
+                if (String.IsNullOrEmpty(password.Text)) password.BackgroundColor = Color.Red;
+                if (String.IsNullOrEmpty(checkPassword.Text)) checkPassword.BackgroundColor = Color.Red;
+            }
+            
 
             List<User> debug = App.Database.GetUsersAsync().Result;
+        }
+
+        private void Name_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

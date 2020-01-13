@@ -27,9 +27,16 @@
                         </x:Array>
                     </Picker.ItemsSource>
                 </Picker>
-                <Entry x:Name="password" IsPassword="True" Placeholder="Пароль" HorizontalOptions="Fill"></Entry>
+                <Entry x:Name="password" 
+                       TextChanged="Check_Password"
+                       IsPassword="True" Placeholder="Пароль" HorizontalOptions="Fill"></Entry>
                 <Entry x:Name="checkPassword" IsPassword="True" Placeholder="Повторите пароль" HorizontalOptions="Fill"
                    TextChanged="Check_Password"></Entry>
+                <Label x:Name="Incorrect"
+                       Text="Неверные входные данные"
+                       TextColor="Red"
+                       FontSize="Large"
+                       IsVisible="False" />
                 <StackLayout Orientation="Horizontal">
                     <Button Text="Зарегистрироваться"
                             Clicked="ConfirmClicked"></Button>
