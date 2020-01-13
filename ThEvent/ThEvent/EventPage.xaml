@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ThEvent.EventPage">
+    <ContentPage.Content>
+        <StackLayout x:Name="PageStackLayout">
+            <ScrollView BackgroundColor="#029A7F">
+                <StackLayout>
+                    <Image x:Name="EventImage"
+                           WidthRequest="200"
+                           HeightRequest="200"
+                           BackgroundColor="IndianRed"
+                           Margin="20"/>
+                    <Frame BackgroundColor="White" 
+                           Margin="20, 10, 20, 20"
+                           Padding="10">
+                        <Label x:Name="ShortDescriptionLabel"
+                               FontSize="25"
+                               TextColor="#3D3D3D"/>
+                    </Frame>
+                    <StackLayout BackgroundColor="White">
+                        <Label x:Name="FullDescriptionLabel"
+                            Margin="20"
+                               FontSize="25"
+                               TextColor="Black"/>
+                        <Button Text="Принять участие!"
+                                Clicked="ParticipateClicked"
+                                Margin="0, 40"/>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

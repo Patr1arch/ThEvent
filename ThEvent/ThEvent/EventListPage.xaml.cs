@@ -22,6 +22,8 @@ namespace ThEvent
             //foreach (var ev in eventList)
             for (int i = 0; i < 7; i++)
             {
+                //var ev = eventList[i];
+                
                 Frame frame = new Frame
                 {
                     BorderColor = Color.FromHex("#FF078731"),
@@ -37,8 +39,8 @@ namespace ThEvent
                 Image image = new Image
                 {
                     // ev.ImageURL
-                    Source = ImageSource.FromUri(new Uri("https://sun9-48.userapi.com/c200828/v200828821/352cf/NHXlNXqYXow.jpg"))
-                    , HeightRequest = 140
+                    Source = ImageSource.FromUri(new Uri("https://sun9-48.userapi.com/c200828/v200828821/352cf/NHXlNXqYXow.jpg")),
+                    HeightRequest = 140
                 };
                 Label dateLabel = new Label
                 {
@@ -53,6 +55,15 @@ namespace ThEvent
                     Children = {HeadlineLabel, image, dateLabel}
                 };
                 frame.Content = stackLayout;
+
+                var Tap = new TapGestureRecognizer();
+                Tap.Tapped += async (a, b) =>
+                {
+                    await Navigation.PushAsync(new EventPage(/*ev*/));
+                };
+
+                frame.GestureRecognizers.Add(Tap);
+
                 if (i % 2 == 0)
                 {
                     leftStLt.Children.Add(frame);
