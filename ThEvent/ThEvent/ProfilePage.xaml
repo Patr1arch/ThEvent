@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="ThEvent.ProfilePage"
-             NavigationPage.HasBackButton="False">
+             NavigationPage.HasBackButton="False"
+             Title="Профиль">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="Logout"
@@ -16,7 +17,8 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <StackLayout x:Name="PageStackLayout">
+        <StackLayout x:Name="PageStackLayout"
+                     BackgroundColor="#66C7E0E0">
             <Label Text="Profile!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />

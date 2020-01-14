@@ -6,6 +6,15 @@
              mc:Ignorable="d"
              x:Class="ThEvent.App">
     <Application.Resources>
+        <ResourceDictionary>
 
+            <!-- Styles -->
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="#126363"/>
+                <Setter Property="BarTextColor" Value="White"/>
+            </Style>
+            <!-- Styles -->
+
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

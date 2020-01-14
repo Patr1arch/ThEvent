@@ -6,30 +6,28 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Forms.PlatformConfiguration;
+using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 
 namespace ThEvent
 {
     class Footer
     {
-        public static Color Color;
-
-        private static ImageButton createImButtonForFooter(string source)
+        private static Xamarin.Forms.ImageButton createImButtonForFooter(string source)
         {
-            var imButton = new ImageButton
+            var imButton = new Xamarin.Forms.ImageButton
             {
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 Source = source,
                 WidthRequest = 40,
                 HeightRequest = 40,
-                BackgroundColor = Color,
-                Margin = new Thickness(0, 5)
+                BackgroundColor = Color.White
             };
 
             return imButton;
         }
-        public static StackLayout getFooter()
+        public static Frame getFooter()
         {
-            Color = Color.FromHex("#90be7f");
 
             var eventButton = createImButtonForFooter("events.ico");
             eventButton.Clicked += async (a, b) =>
@@ -61,12 +59,19 @@ namespace ThEvent
                 {
                     eventButton, rulesButton, contactsButton, profileButton
                 },
-                VerticalOptions = LayoutOptions.EndAndExpand,
                 Orientation = StackOrientation.Horizontal,
-                BackgroundColor = Color
+                
             };
 
-            return footerStackLayout;
+            var frame = new Frame
+            {
+                HasShadow = true,
+                VerticalOptions = LayoutOptions.EndAndExpand,
+                Content = footerStackLayout,
+                Padding = 10
+            };
+
+            return frame;
         }
 
         private static void EventButton_Clicked(object sender, EventArgs e)
