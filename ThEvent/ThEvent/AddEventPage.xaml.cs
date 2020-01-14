@@ -34,7 +34,9 @@ namespace ThEvent
                 Title = Title.Text,
                 Date = new DateTime(Data.Date.Year, Data.Date.Month, Data.Date.Day, Time.Time.Hours, Time.Time.Minutes, 0),
                 Image = Image.Text,
-                Info = Info.Text
+                Info = Info.Text,
+                Address = Address.Text,
+                CreatorId = App.UserId
             };
             App.Database.SaveEventAsync(newEv);
             Navigation.PopAsync();

@@ -19,6 +19,12 @@
                     <Entry x:Name="Title"
                            Margin="20, 0, 20, 0"/>
 
+                    <Label Text="Address:"
+                           Margin="20, 20, 20, 5"
+                           FontSize="Large"/>
+                    <Entry x:Name="Address"
+                           Margin="20, 0, 20, 0"/>
+
                     <Label Text="Date:"
                            Margin="20, 20, 20, 5"
                            FontSize="Large"/>
@@ -40,7 +46,8 @@
                     <Label Text="Info"
                            Margin="20, 20, 20, 5"
                            FontSize="Large"/>
-                    <Entry x:Name="Info"
+                    <Editor x:Name="Info"
+                           AutoSize="TextChanges"
                            Margin="20, 0, 20, 40"/>
                 </StackLayout>                       
             </ScrollView>
@@ -50,7 +57,9 @@
                     HorizontalOptions="CenterAndExpand"
                     VerticalOptions="EndAndExpand"
                     Margin="0, 0, 0, 20"
-                    BackgroundColor="#126363"
+                    Padding="28, 0, 28, 0"
+                    Opacity="0.9"
+                    BackgroundColor="#212D6F"
                     TextColor="WhiteSmoke"
                     FontSize="Medium"/>
         </StackLayout>

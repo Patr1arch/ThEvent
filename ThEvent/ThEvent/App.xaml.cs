@@ -10,7 +10,7 @@ namespace ThEvent
 {
     public partial class App : Application
     {
-        public static Int64 UserId = -1;
+        public static int UserId = -1;
 
         static ThEventDatabase database;
         public static ThEventDatabase Database

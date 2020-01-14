@@ -18,5 +18,6 @@ namespace ThEvent.Models
 
         [ForeignKey(typeof(User))]
         public int CreatorId { get; set; }
+        public string Address { get; set; }
     }
 }
