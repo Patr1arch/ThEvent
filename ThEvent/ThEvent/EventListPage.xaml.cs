@@ -19,6 +19,9 @@ namespace ThEvent
             PageStackLayout.Children.Add(footer);
 
             var eventList = App.Database.GetEventsAsync().Result;
+            eventList.Sort((lhs, rhs) =>
+                lhs.Date.CompareTo(rhs.Date));
+
             foreach (var ev in eventList)
             {                
                 Label HeadlineLabel = new Label
@@ -29,7 +32,7 @@ namespace ThEvent
                 };
                 Label dateLabel = new Label
                 {
-                    Text = "" + ev.Date.ToString("MM/dd H:mm"),
+                    Text = "" + ev.Date.ToString("dd/MM/yyyy HH:mm"),
                     TextColor = Color.Gray,
                     VerticalOptions = LayoutOptions.EndAndExpand
                 };
