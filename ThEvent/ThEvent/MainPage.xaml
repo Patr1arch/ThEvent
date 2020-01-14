@@ -4,31 +4,43 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="ThEvent.MainPage" Title="Страница входа">
+             x:Class="ThEvent.MainPage"
+             Title="Страница входа"
+             BackgroundImageSource="https://i.pinimg.com/736x/48/b8/23/48b823268493ac0990230cfa8f05bb2e--hd-samsung-more.jpg"
+             NavigationPage.HasNavigationBar="false">
 
     <ContentPage.Content>
         <StackLayout x:Name="Page_Stack_Layout">
-            <Label Text="ThEvent" Margin="0,10,0,0"
-                   FontSize="Large"
-                VerticalOptions="Start" 
-                HorizontalOptions="CenterAndExpand" />
-            <Button VerticalOptions="CenterAndExpand" Margin="0,100,0,0"
+            <Label Text="ThEvent"
+                   Margin="0, 80, 0, 0"
+                   FontSize="50"
+                   TextColor="#9AAEEC"
+                   VerticalOptions="Start" 
+                   HorizontalOptions="CenterAndExpand" />
+            <Button VerticalOptions="CenterAndExpand" Margin="0, 50, 0, 0"
                     HorizontalOptions="Center"
                     WidthRequest="200" Text="ВОЙТИ"
-                    HeightRequest="100"
+                    HeightRequest="60"
+                    Opacity="0.7"
+                    BackgroundColor="#9AAEEC"
                     Clicked="AuthorizationClicked"/>
-            <StackLayout Orientation="Horizontal" 
+            <StackLayout Orientation="Horizontal"
+                         Margin="0,0,0,40"
                          VerticalOptions="CenterAndExpand">
-                <Button WidthRequest="150" 
-                        HeightRequest="100"
+                <Button WidthRequest="150"
+                        HeightRequest="60"
+                        Opacity="0.7"
                         HorizontalOptions="Start" 
                         Text="Аноним" 
                         Margin="60,0,0,0"
+                        BackgroundColor="#9AAEEC"
                         Clicked="AnonymousClicked"/>
                 <Button WidthRequest="150" 
-                        HeightRequest="100"
+                        HeightRequest="60"
+                        Opacity="0.7"
                         HorizontalOptions="End" 
                         Text="Регистрация"
+                        BackgroundColor="#9AAEEC"
                         Clicked="RegistrateClicked"/>
             </StackLayout>
         </StackLayout>
