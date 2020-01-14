@@ -17,6 +17,12 @@ namespace ThEvent.Data
             _database.CreateTableAsync<User>().Wait();
         }
 
+        public void DropTables()
+        {
+            _database.DropTableAsync<User>().Wait();
+            _database.DropTableAsync<Event>().Wait();
+        }
+
         public Task<List<User>> GetUsersAsync()
         {
             return _database.Table<User>().ToListAsync();
@@ -30,6 +36,10 @@ namespace ThEvent.Data
         public Task<List<Event>> GetEventsAsync()
         {
             return _database.Table<Event>().ToListAsync();
+        }
+        public Task<int> SaveEventAsync(Event newEv)
+        {
+            return _database.InsertAsync(newEv);
         }
     }
 }
