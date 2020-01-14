@@ -11,8 +11,8 @@ namespace ThEvent
         public void Init()
         {
             App.Database.ClearTables();  //for debbug
-            App.Database.DropTables();
-            App.Database.CreateTables();
+            /*App.Database.DropTables();
+            App.Database.CreateTables();*/
 
             var eventList = App.Database.GetEventsAsync().Result;
             if (eventList.Count == 0)
@@ -95,6 +95,31 @@ namespace ThEvent
                     Info = "there you can see your info"
                 };
                 App.Database.SaveUserAsync(newUs);
+            }
+
+            var tagList = App.Database.GetTagsAsync().Result;
+            if (tagList.Count == 0)
+            {
+                Tag newTag = new Tag()
+                {
+                    Title = "tag 1"
+                };
+                App.Database.SaveTagAsync(newTag);
+                newTag = new Tag()
+                {
+                    Title = "tag 2"
+                };
+                App.Database.SaveTagAsync(newTag);
+                newTag = new Tag()
+                {
+                    Title = "tag 3"
+                };
+                App.Database.SaveTagAsync(newTag);
+                newTag = new Tag()
+                {
+                    Title = "tag 4"
+                };
+                App.Database.SaveTagAsync(newTag);
             }
         }
     }
