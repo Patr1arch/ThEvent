@@ -14,7 +14,7 @@ namespace ThEvent
             /*App.Database.DropTables();
             App.Database.CreateTables();*/
 
-            var eventList = App.Database.GetEventsAsync().Result;
+            var eventList = App.Database.GetEventsAsync();
             if (eventList.Count == 0)
             {
                 Event newEv = new Event()
@@ -26,7 +26,7 @@ namespace ThEvent
                     Address = "address",
                     CreatorId = 1
                 };
-                App.Database.SaveEventAsync(newEv);
+                _ = App.Database.SaveEventAsync(newEv).Result;
                 newEv = new Event()
                 {
                     Title = "Event 2",
@@ -36,7 +36,7 @@ namespace ThEvent
                     Address = "address",
                     CreatorId = 1
                 };
-                App.Database.SaveEventAsync(newEv);
+                _ = App.Database.SaveEventAsync(newEv).Result;
                 newEv = new Event()
                 {
                     Title = "Event 3",
@@ -46,7 +46,7 @@ namespace ThEvent
                     Address = "address",
                     CreatorId = 1
                 };
-                App.Database.SaveEventAsync(newEv);
+                _ = App.Database.SaveEventAsync(newEv).Result;
                 newEv = new Event()
                 {
                     Title = "Event 4",
@@ -56,7 +56,7 @@ namespace ThEvent
                     Address = "address",
                     CreatorId = 1
                 };
-                App.Database.SaveEventAsync(newEv);
+                _ = App.Database.SaveEventAsync(newEv).Result;
             }
 
             var userList = App.Database.GetUsersAsync().Result;
@@ -104,23 +104,50 @@ namespace ThEvent
                 {
                     Title = "tag 1"
                 };
-                App.Database.SaveTagAsync(newTag);
+                _ = App.Database.SaveTagAsync(newTag).Result;
                 newTag = new Tag()
                 {
                     Title = "tag 2"
                 };
-                App.Database.SaveTagAsync(newTag);
+                _ = App.Database.SaveTagAsync(newTag).Result;
                 newTag = new Tag()
                 {
                     Title = "tag 3"
                 };
-                App.Database.SaveTagAsync(newTag);
+                _ = App.Database.SaveTagAsync(newTag).Result;
                 newTag = new Tag()
                 {
                     Title = "tag 4"
                 };
-                App.Database.SaveTagAsync(newTag);
+                _ = App.Database.SaveTagAsync(newTag).Result;
             }
+
+
+            var eventTagsList = App.Database.GetEventTagsAsync().Result;
+            if (eventTagsList.Count == 0)
+            {
+                eventList = App.Database.GetEventsAsync();
+                tagList = App.Database.GetTagsAsync().Result;
+
+                EventTags newET = new EventTags()
+                {
+                    EventId = eventList[0].Id,
+                    TagId = tagList[1].Id
+                };
+                App.Database.SaveEventTagAsync(newET);
+                newET = new EventTags()
+                {
+                    EventId = eventList[1].Id,
+                    TagId = tagList[0].Id
+                };
+                App.Database.SaveEventTagAsync(newET);
+                newET = new EventTags()
+                {
+                    EventId = eventList[1].Id,
+                    TagId = tagList[2].Id
+                };
+                App.Database.SaveEventTagAsync(newET);
+            }            
         }
     }
 }

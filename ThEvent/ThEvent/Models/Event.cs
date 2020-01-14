@@ -19,5 +19,13 @@ namespace ThEvent.Models
         [ForeignKey(typeof(User))]
         public int CreatorId { get; set; }
         public string Address { get; set; }
+
+        [Ignore]
+        public List<Tag> EventTags { get; set; }
+
+        public Event()
+        {
+            EventTags = new List<Tag>();
+        }
     }
 }

@@ -25,6 +25,12 @@ namespace ThEvent
             Image.Source = ImageSource.FromUri(new Uri(currentEvent.Image));
             Data.Text = "Data:  " + currentEvent.Date.ToString("dd/MM/yyyy HH:mm");
             Address.Text = "Address:  " + currentEvent.Address;
+            Tags.Text = "Tags: ";
+            foreach(Tag t in currentEvent.EventTags)
+            {
+                Tags.Text += t.Title + ", ";
+            }
+            Tags.Text = Tags.Text.Substring(0, Tags.Text.Length - 2);
         }
 
         private void ParticipateClicked(object sender, EventArgs e)

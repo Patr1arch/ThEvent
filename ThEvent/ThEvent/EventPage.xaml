@@ -23,6 +23,11 @@
                                Margin="20, 40"
                                FontSize="22"
                                TextColor="Black"/>
+                        <Label x:Name="Tags"
+                               Margin="20, 5"
+                               HorizontalOptions="StartAndExpand"
+                               FontSize="Medium"
+                               TextColor="Black"/>
                         <Label x:Name="Data"
                                Margin="20, 5"
                                HorizontalOptions="EndAndExpand"

@@ -14,7 +14,7 @@ namespace ThEvent
     {
         void PutEvenst()
         {
-            var eventList = App.Database.GetEventsAsync().Result;
+            var eventList = App.Database.GetEventsAsync();
             eventList.Sort((lhs, rhs) =>
                 lhs.Date.CompareTo(rhs.Date));
 
