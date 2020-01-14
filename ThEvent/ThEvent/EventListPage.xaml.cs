@@ -64,7 +64,7 @@ namespace ThEvent
                 var Tap = new TapGestureRecognizer();
                 Tap.Tapped += async (a, b) =>
                 {
-                    await Navigation.PushAsync(new EventPage(/*ev*/));
+                    await Navigation.PushAsync(new EventPage(ev));
                 };
 
                 frame.GestureRecognizers.Add(Tap);
