@@ -5,9 +5,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="ThEvent.AddEventListPage"
-             Title="New Event">
+             Title="New Event"
+             BackgroundImageSource="https://i.pinimg.com/736x/48/b8/23/48b823268493ac0990230cfa8f05bb2e--hd-samsung-more.jpg">
     <ContentPage.Content>
-        <StackLayout x:Name="PageStackLayout">
+        <StackLayout x:Name="PageStackLayout"
+                     BackgroundColor="#66C7E0E0"
+                     Opacity="0.9">
             <ScrollView>
                 <StackLayout>
                     <Label Text="Title:"

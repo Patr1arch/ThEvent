@@ -6,7 +6,8 @@
              mc:Ignorable="d"
              x:Class="ThEvent.RulesPage"
              NavigationPage.HasBackButton="False"
-             Title="Правила">
+             Title="Правила"
+             BackgroundImageSource="https://i.pinimg.com/736x/48/b8/23/48b823268493ac0990230cfa8f05bb2e--hd-samsung-more.jpg">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="Logout"
@@ -18,7 +19,8 @@
 
     <ContentPage.Content>
         <StackLayout x:Name="PageStackLayout"
-                     BackgroundColor="#66C7E0E0">
+                     BackgroundColor="#66C7E0E0"
+                     Opacity="0.9">
             <Label FontAttributes="Bold"
                    TextColor="Black"
                    FontSize="Large"

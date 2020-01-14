@@ -6,9 +6,11 @@
              mc:Ignorable="d"
              x:Class="ThEvent.RegistrationPage"
              Title="Registration"
-             BackgroundColor="#C7E0E0">
+             BackgroundImageSource="https://i.pinimg.com/736x/48/b8/23/48b823268493ac0990230cfa8f05bb2e--hd-samsung-more.jpg">
     <ContentPage.Content>
-        <StackLayout x:Name="Page_Stack_Layout">
+        <StackLayout x:Name="Page_Stack_Layout"
+                     BackgroundColor="#C7E0E0"
+                     Opacity="0.7">
             <StackLayout Margin="30, 10, 40, 10"
                          VerticalOptions="CenterAndExpand">
                 <Entry x:Name="Name"

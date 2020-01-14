@@ -23,6 +23,7 @@ namespace ThEvent
                 Label HeadlineLabel = new Label
                 {
                     Text = ev.Title,
+                    FontSize = 30,
                     FontAttributes = FontAttributes.Bold,
                     TextColor = Color.Black
                 };
@@ -56,7 +57,8 @@ namespace ThEvent
                 {
                     Padding = 0,
                     Content = mainStackLayout,
-                    Margin = new Thickness(20, 0)
+                    Margin = new Thickness(20, 2),
+                    Opacity = 0.9
                 };
 
                 var Tap = new TapGestureRecognizer();
