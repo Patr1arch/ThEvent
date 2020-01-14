@@ -6,7 +6,7 @@ using SQLiteNetExtensions;
 
 namespace ThEvent.Models
 {
-    class Tag
+    public class Tag
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
