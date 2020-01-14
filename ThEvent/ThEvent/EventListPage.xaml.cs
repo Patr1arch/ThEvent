@@ -12,18 +12,14 @@ namespace ThEvent
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EventListPage : ContentPage
     {
-        public EventListPage()
+        void PutEvenst()
         {
-            InitializeComponent();
-            var footer = Footer.getFooter();
-            PageStackLayout.Children.Add(footer);
-
             var eventList = App.Database.GetEventsAsync().Result;
             eventList.Sort((lhs, rhs) =>
                 lhs.Date.CompareTo(rhs.Date));
 
             foreach (var ev in eventList)
-            {                
+            {
                 Label HeadlineLabel = new Label
                 {
                     Text = ev.Title,
@@ -39,7 +35,7 @@ namespace ThEvent
                 StackLayout innerStackLayout = new StackLayout
                 {
                     Margin = 20,
-                    Children = {HeadlineLabel, dateLabel}
+                    Children = { HeadlineLabel, dateLabel }
                 };
 
                 Image image = new Image
@@ -73,7 +69,14 @@ namespace ThEvent
 
                 eventStackLayout.Children.Add(frame);
             }
+        }
+        public EventListPage()
+        {
+            InitializeComponent();
+            var footer = Footer.getFooter();
+            PageStackLayout.Children.Add(footer);
 
+            PutEvenst();
         }
 
         private void LogoutClicked(object sender, EventArgs e)
@@ -86,7 +89,15 @@ namespace ThEvent
             if (App.UserId == -1)
                 DisplayAlert("Уведомление", "Чтобы иметь возможность добавить мероприятие, войдите в аккаунт", "OK");
             else
-                Navigation.PushAsync(new AddEventListPage());
+            {
+                var newAddEventPage = new AddEventListPage();
+                Navigation.PushAsync(newAddEventPage);
+                newAddEventPage.Disappearing += (s, a) =>
+                {
+                    eventStackLayout.Children.Clear();
+                    PutEvenst();
+                };
+            }
         }
     }
 }

@@ -17,6 +17,8 @@ namespace ThEvent
         public EventPage(/*Event myEvent*/)
         {
             InitializeComponent();
+            var footer = Footer.getFooter();
+            PageStackLayout.Children.Add(footer);
 
             FullDescriptionLabel.Text = "ASDKHGASJDGASGKJDGASDGASGDASGDGASHDASKHDKJHSAKJDHASKJHDKJHSADKJHASKHJDKJHAS";//myEvent.FullDescription;
             ShortDescriptionLabel.Text = "TemaTemaTemaTemaTemaTema"; //myEvent.ShortDescription;

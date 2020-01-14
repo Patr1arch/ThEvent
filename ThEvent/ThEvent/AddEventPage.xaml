@@ -6,10 +6,49 @@
              mc:Ignorable="d"
              x:Class="ThEvent.AddEventListPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout x:Name="PageStackLayout">
+            <ScrollView>
+                <StackLayout>
+                    <Label Text="Title:"
+                           Margin="20, 20, 20, 5"
+                           FontSize="Large"/>
+                    <Entry x:Name="Title"
+                           Margin="20, 0, 20, 0"/>
+
+                    <Label Text="Date:"
+                           Margin="20, 20, 20, 5"
+                           FontSize="Large"/>
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="FillAndExpand"
+                                 Margin="20, 0, 20, 0">
+                        <DatePicker x:Name="Data"
+                                    HorizontalOptions="FillAndExpand"/>
+                        <TimePicker x:Name="Time"
+                                    HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+                    
+                    <Label Text="Image:"
+                           Margin="20, 20, 20, 5"
+                           FontSize="Large"/>
+                    <Entry x:Name="Image"
+                           Margin="20, 0, 20, 0"/>
+
+                    <Label Text="Info"
+                           Margin="20, 20, 20, 5"
+                           FontSize="Large"/>
+                    <Entry x:Name="Info"
+                           Margin="20, 0, 20, 40"/>
+                </StackLayout>                       
+            </ScrollView>
+            <Button x:Name="Confirm"
+                    Clicked="ConfirmClicked"
+                    Text="Confirm"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="EndAndExpand"
+                    Margin="0, 0, 0, 20"
+                    BackgroundColor="#126363"
+                    TextColor="WhiteSmoke"
+                    FontSize="Medium"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
