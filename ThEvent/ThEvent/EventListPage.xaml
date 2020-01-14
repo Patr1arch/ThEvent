@@ -7,16 +7,16 @@
              x:Class="ThEvent.EventListPage"
              NavigationPage.HasBackButton="False"
              Title="МЕРОПРИЯТИЯ">
-    
+
     <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+"
+                     Clicked="AddClicked"
+                     IconImageSource="addEvent.png"/>
         <ToolbarItem x:Name="Logout"
                      Text="choose city"
                      Order="Primary"
                      IconImageSource="logout.png"
                      Clicked="LogoutClicked"/>
-        <ToolbarItem Text="+"
-                     Clicked="AddClicked"
-                     IconImageSource="addEvent.png"/>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
