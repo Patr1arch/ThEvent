@@ -7,13 +7,10 @@
              x:Class="ThEvent.EventPage">
     <ContentPage.Content>
         <StackLayout x:Name="PageStackLayout">
-            <ScrollView BackgroundColor="#029A7F">
+            <ScrollView BackgroundColor="#FA8F7F">
                 <StackLayout>
                     <Image x:Name="EventImage"
-                           WidthRequest="200"
-                           HeightRequest="200"
-                           BackgroundColor="IndianRed"
-                           Margin="20"/>
+                           Margin="0"/>
                     <Frame BackgroundColor="White" 
                            Margin="20, 10, 20, 20"
                            Padding="10">
@@ -26,9 +23,12 @@
                             Margin="20"
                                FontSize="25"
                                TextColor="Black"/>
-                        <Button Text="Принять участие!"
-                                Clicked="ParticipateClicked"
-                                Margin="0, 40"/>
+                        <Button 
+                            BackgroundColor="#FF5C5C"
+                            TextColor="#F4F4F4"
+                            Text="Принять участие!"
+                            Clicked="ParticipateClicked"
+                            Margin="40, 0"/>
                     </StackLayout>
                 </StackLayout>
             </ScrollView>

@@ -5,80 +5,72 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="ThEvent.EventListPage"
-             NavigationPage.HasBackButton="False">
-
+             NavigationPage.HasBackButton="False"
+             Title="МЕРОПРИЯТИЯ">
+    
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="Logout"
                      Text="choose city"
                      Order="Primary"
                      IconImageSource="logout.png"
                      Clicked="LogoutClicked"/>
-        <ToolbarItem Text="+" 
+        <ToolbarItem Text="+"
                      Clicked="AddClicked"
                      IconImageSource="addEvent.png"/>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
         <StackLayout x:Name="PageStackLayout"
-                     BackgroundColor="#99DF7F">
-            <Label HorizontalTextAlignment="Center"
-                   Text="Наши мероприятия!"
-                   Margin="0, 5, 0, 0" 
-                   FontAttributes="Bold"
-                   TextColor="Black"
-                   FontSize="25"
-                   BackgroundColor="AliceBlue"/>
-            <StackLayout Orientation="Horizontal">
+                     BackgroundColor="#C7E0E0">
+            <StackLayout Padding="0, 10, 0, 5"
+                Orientation="Horizontal">
                 <Button Text="Выбрать фильтр"
+                        BackgroundColor="#379999"
+                        TextColor="#F4F4F4"
                         HorizontalOptions="CenterAndExpand"/>
                 <Button Text="Применить"
+                        BackgroundColor="#F4F4F4"
+                        TextColor="#379999"
                         HorizontalOptions="CenterAndExpand"/>
                 <Button Text="Очистить"
+                        BackgroundColor="#F4F4F4"
+                        TextColor="#379999"
                         HorizontalOptions="CenterAndExpand"/>
             </StackLayout>
             <ScrollView>
-            <Grid Margin="5">
-                
-                    <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <StackLayout  x:Name="leftStLt" 
-                              Grid.Column="0" 
-                              VerticalOptions="Start">
-                    <!--
-                    <Frame BorderColor="#078731" 
-                           Padding="8">
-                        <StackLayout>
-                                <Label
-                                    TextColor="Black"
-                                    FontAttributes="Bold">
+                <StackLayout  x:Name="eventStackLayout" >
+                    <!--<Frame Margin="20, 5" Padding="0">
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout Margin="20">
+                                <Label TextColor="Black"
+                                        FontAttributes="Bold">
                                     Чтобы мышцы росли как на дрожах, нужно всего лишь капля простого ...
                                 </Label>
-                                <Image BackgroundColor="Accent"
-                                    HeightRequest="140"
-                                    Source="https://sun9-48.userapi.com/c200828/v200828821/352cf/NHXlNXqYXow.jpg"></Image>
-                                <Label VerticalOptions="End"
-                                       HorizontalOptions="Start">
+                                <Label VerticalOptions="EndAndExpand">
                                     01:23:32
                                 </Label>
-                        </StackLayout>
-                    </Frame>
-                    -->
-                </StackLayout>
 
+                            </StackLayout>
+                            <Image BackgroundColor="Accent"
+                                    HeightRequest="140"
+                                    WidthRequest="140"
+                                    Source="https://sun9-48.userapi.com/c200828/v200828821/352cf/NHXlNXqYXow.jpg"></Image>
+                        </StackLayout>
+                    </Frame> -->
+                </StackLayout>
+<!--
                 <StackLayout x:Name="rightStLt" 
                              Grid.Column="1" 
                              VerticalOptions="Start">
-                    <!--<Frame BorderColor="Accent">
+                    <Frame BorderColor="Accent">
                         <StackLayout>
                             <Button Text="asdas"/>
                             <Label>asdasd</Label>
 
                         </StackLayout>
-                    </Frame> -->
+                    </Frame> 
                 </StackLayout>
-            </Grid>
+                -->
             </ScrollView>
         </StackLayout>
     </ContentPage.Content>

@@ -24,37 +24,44 @@ namespace ThEvent
             {
                 //var ev = eventList[i];
                 
-                Frame frame = new Frame
-                {
-                    BorderColor = Color.FromHex("#FF078731"),
-                    Padding = 8
-                };
-
                 Label HeadlineLabel = new Label
                 {
                     Text = "Чтобы мышцы росли как на дрожах, нужно всего лишь капля простого ...", // ev.HeadLine
                     FontAttributes = FontAttributes.Bold,
                     TextColor = Color.Black
                 };
-                Image image = new Image
-                {
-                    // ev.ImageURL
-                    Source = ImageSource.FromUri(new Uri("https://sun9-48.userapi.com/c200828/v200828821/352cf/NHXlNXqYXow.jpg")),
-                    HeightRequest = 140
-                };
                 Label dateLabel = new Label
                 {
                     Text = "" + DateTime.Now.ToString("MM/dd H:mm"), // ev.Date
                     TextColor = Color.Gray,
-                    VerticalOptions = LayoutOptions.End,
-                    HorizontalTextAlignment = TextAlignment.Start
+                    VerticalOptions = LayoutOptions.EndAndExpand
+                };
+                StackLayout innerStackLayout = new StackLayout
+                {
+                    Margin = 20,
+                    Children = {HeadlineLabel, dateLabel}
                 };
 
-                StackLayout stackLayout = new StackLayout
+                Image image = new Image
                 {
-                    Children = {HeadlineLabel, image, dateLabel}
+                    // ev.ImageURL
+                    Source = ImageSource.FromUri(new Uri("https://sun9-48.userapi.com/c200828/v200828821/352cf/NHXlNXqYXow.jpg")),
+                    HeightRequest = 140,
+                    WidthRequest = 140
                 };
-                frame.Content = stackLayout;
+
+                StackLayout mainStackLayout = new StackLayout
+                {
+                    Orientation = StackOrientation.Horizontal,
+                    Children = { innerStackLayout, image }
+                };
+
+                var frame = new Frame
+                {
+                    Padding = 0,
+                    Content = mainStackLayout,
+                    Margin = new Thickness(20, 0)
+                };
 
                 var Tap = new TapGestureRecognizer();
                 Tap.Tapped += async (a, b) =>
@@ -64,14 +71,7 @@ namespace ThEvent
 
                 frame.GestureRecognizers.Add(Tap);
 
-                if (i % 2 == 0)
-                {
-                    leftStLt.Children.Add(frame);
-                }
-                else
-                {
-                    rightStLt.Children.Add(frame);
-                }
+                eventStackLayout.Children.Add(frame);
             }
 
         }
@@ -83,7 +83,10 @@ namespace ThEvent
 
         private void AddClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new AddEventListPage());
+            if (App.UserId == -1)
+                DisplayAlert("Уведомление", "Чтобы иметь возможность добавить мероприятие, войдите в аккаунт", "OK");
+            else
+                Navigation.PushAsync(new AddEventListPage());
         }
     }
 }
