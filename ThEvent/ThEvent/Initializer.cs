@@ -61,7 +61,10 @@ namespace ThEvent
                     FirstName = "q",
                     SecondName = "w",
                     Email = "q@gmail.com",
-                    Password = "qw"
+                    Password = "qw",
+                    Age = 20,
+                    Sex = "male",
+                    Info = "there you can see your info"
                 };
                 App.Database.SaveUserAsync(newUs);
                 newUs = new User()
@@ -69,7 +72,10 @@ namespace ThEvent
                     FirstName = "a",
                     SecondName = "s",
                     Email = "a@gmail.com",
-                    Password = "as"
+                    Password = "as",
+                    Age = 20,
+                    Sex = "male",
+                    Info = "there you can see your info"
                 };
                 App.Database.SaveUserAsync(newUs);
                 newUs = new User()
@@ -77,7 +83,10 @@ namespace ThEvent
                     FirstName = "z",
                     SecondName = "x",
                     Email = "z@gmail.com",
-                    Password = "zx"
+                    Password = "zx",
+                    Age = 20,
+                    Sex = "female",
+                    Info = "there you can see your info"
                 };
                 App.Database.SaveUserAsync(newUs);
             }

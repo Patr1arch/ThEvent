@@ -87,8 +87,12 @@ namespace ThEvent
                     Email = Email.Text,
                     Password = password.Text
                 };
-                CheckEmailPage checkEmail = new CheckEmailPage();
+                if (Sex.SelectedIndex == 0)
+                    newUser.Sex = "male";
+                else
+                    newUser.Sex = "female";
 
+                CheckEmailPage checkEmail = new CheckEmailPage();
                 checkEmail.Appearing += (sender_, e_) =>
                 {
                     MailAddress from = new MailAddress("thevent2020@mail.ru", "ThEvent-no-reply");
