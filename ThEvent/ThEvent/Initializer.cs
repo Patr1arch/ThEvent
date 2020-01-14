@@ -20,6 +20,7 @@ namespace ThEvent
                     Title = "Event 1",
                     Image = "https://sun9-48.userapi.com/c200828/v200828821/352cf/NHXlNXqYXow.jpg",
                     FullDescription = "Here you can see full description of event",
+                    Date = new DateTime(2010, 8, 18, 0, 0, 0),
                     CreatorId = 1
                 };
                 App.Database.SaveEventAsync(newEv);
@@ -28,6 +29,7 @@ namespace ThEvent
                     Title = "Event 2",
                     Image = "https://sun9-48.userapi.com/c200828/v200828821/352cf/NHXlNXqYXow.jpg",
                     FullDescription = "Here you can see full description of event",
+                    Date = new DateTime(2019, 4, 20, 0, 0, 0),
                     CreatorId = 1
                 };
                 App.Database.SaveEventAsync(newEv);
@@ -36,6 +38,7 @@ namespace ThEvent
                     Title = "Event 3",
                     Image = "https://sun9-48.userapi.com/c200828/v200828821/352cf/NHXlNXqYXow.jpg",
                     FullDescription = "Here you can see full description of event",
+                    Date = new DateTime(2020, 2, 1, 0, 0, 0),
                     CreatorId = 1
                 };
                 App.Database.SaveEventAsync(newEv);
@@ -44,6 +47,7 @@ namespace ThEvent
                     Title = "Event 4",
                     Image = "https://sun9-48.userapi.com/c200828/v200828821/352cf/NHXlNXqYXow.jpg",
                     FullDescription = "Here you can see full description of event",
+                    Date = new DateTime(2019, 10, 20, 0, 0, 0),
                     CreatorId = 1
                 };
                 App.Database.SaveEventAsync(newEv);

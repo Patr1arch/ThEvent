@@ -19,20 +19,17 @@ namespace ThEvent
             PageStackLayout.Children.Add(footer);
 
             var eventList = App.Database.GetEventsAsync().Result;
-            //foreach (var ev in eventList)
-            for (int i = 0; i < 7; i++)
-            {
-                //var ev = eventList[i];
-                
+            foreach (var ev in eventList)
+            {                
                 Label HeadlineLabel = new Label
                 {
-                    Text = "Чтобы мышцы росли как на дрожах, нужно всего лишь капля простого ...", // ev.HeadLine
+                    Text = ev.Title,
                     FontAttributes = FontAttributes.Bold,
                     TextColor = Color.Black
                 };
                 Label dateLabel = new Label
                 {
-                    Text = "" + DateTime.Now.ToString("MM/dd H:mm"), // ev.Date
+                    Text = "" + ev.Date.ToString("MM/dd H:mm"),
                     TextColor = Color.Gray,
                     VerticalOptions = LayoutOptions.EndAndExpand
                 };
@@ -44,10 +41,10 @@ namespace ThEvent
 
                 Image image = new Image
                 {
-                    // ev.ImageURL
-                    Source = ImageSource.FromUri(new Uri("https://sun9-48.userapi.com/c200828/v200828821/352cf/NHXlNXqYXow.jpg")),
+                    Source = ImageSource.FromUri(new Uri(ev.Image)),
                     HeightRequest = 140,
-                    WidthRequest = 140
+                    WidthRequest = 140,
+                    HorizontalOptions = LayoutOptions.EndAndExpand
                 };
 
                 StackLayout mainStackLayout = new StackLayout
