@@ -6,11 +6,11 @@ using ThEvent.Data;
 
 namespace ThEvent
 {
-    class Initializer
+    public class Initializer
     {
-        void Init()
+        public void Init()
         {
-            App.Database.DropTables();
+            App.Database.ClearTables();
 
             var eventList = App.Database.GetEventsAsync().Result;
             if (eventList.Count == 0)
@@ -75,6 +75,7 @@ namespace ThEvent
                     Email = "z@gmail.com",
                     Password = "zx"
                 };
+                App.Database.SaveUserAsync(newUs);
             }
         }
     }

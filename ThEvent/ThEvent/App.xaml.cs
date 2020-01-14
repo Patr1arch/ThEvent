@@ -28,6 +28,8 @@ namespace ThEvent
         {
             InitializeComponent();
             MainPage = new NavigationPage(new MainPage());
+            var ini = new Initializer();
+            ini.Init();
         }
 
         protected override void OnStart()

@@ -16,7 +16,16 @@ namespace ThEvent.Data
             _database.CreateTableAsync<Event>().Wait();
             _database.CreateTableAsync<User>().Wait();
         }
-
+        public void ClearTables()
+        {
+            _database.DeleteAllAsync<Event>();
+            _database.DeleteAllAsync<User>();
+        }
+        public void CreateTables()
+        {
+            _database.CreateTableAsync<Event>().Wait();
+            _database.CreateTableAsync<User>().Wait();
+        }
         public void DropTables()
         {
             _database.DropTableAsync<User>().Wait();
