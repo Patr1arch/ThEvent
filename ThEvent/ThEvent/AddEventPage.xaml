@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="ThEvent.AddEventListPage">
+             x:Class="ThEvent.AddEventListPage"
+             Title="New Event">
     <ContentPage.Content>
         <StackLayout x:Name="PageStackLayout">
             <ScrollView>

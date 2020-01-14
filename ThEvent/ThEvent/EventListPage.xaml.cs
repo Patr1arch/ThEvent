@@ -70,11 +70,42 @@ namespace ThEvent
                 eventStackLayout.Children.Add(frame);
             }
         }
+        void AddEventButton()
+        {
+            ToolbarItem AddEvent = new ToolbarItem
+            {
+                Text = "+",
+                IconImageSource = "addEvent.png",
+                Order = ToolbarItemOrder.Primary
+            };
+            AddEvent.Clicked += (s, e) =>
+            {
+                AddClicked(s, e);
+            };
+            this.ToolbarItems.Add(AddEvent);
+        }
+        void AddLogout()
+        {
+            ToolbarItem Logout = new ToolbarItem
+            {
+                Text = "+",
+                IconImageSource = "logout.png",
+                Order = ToolbarItemOrder.Primary
+            };
+            Logout.Clicked += (s, e) =>
+            {
+                LogoutClicked(s, e);
+            };
+            this.ToolbarItems.Add(Logout);
+        }
         public EventListPage()
         {
             InitializeComponent();
             var footer = Footer.getFooter();
             PageStackLayout.Children.Add(footer);
+            if (App.UserId != -1)
+                AddEventButton();
+            AddLogout();
 
             PutEvenst();
         }
@@ -86,18 +117,13 @@ namespace ThEvent
 
         private void AddClicked(object sender, EventArgs e)
         {
-            if (App.UserId == -1)
-                DisplayAlert("Уведомление", "Чтобы иметь возможность добавить мероприятие, войдите в аккаунт", "OK");
-            else
+            var newAddEventPage = new AddEventListPage();
+            Navigation.PushAsync(newAddEventPage);
+            newAddEventPage.Disappearing += (s, a) =>
             {
-                var newAddEventPage = new AddEventListPage();
-                Navigation.PushAsync(newAddEventPage);
-                newAddEventPage.Disappearing += (s, a) =>
-                {
-                    eventStackLayout.Children.Clear();
-                    PutEvenst();
-                };
-            }
+                eventStackLayout.Children.Clear();
+                PutEvenst();
+            };
         }
     }
 }

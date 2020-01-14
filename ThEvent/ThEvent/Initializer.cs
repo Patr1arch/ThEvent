@@ -10,7 +10,7 @@ namespace ThEvent
     {
         public void Init()
         {
-            App.Database.ClearTables();
+            App.Database.ClearTables();  //for debbug
 
             var eventList = App.Database.GetEventsAsync().Result;
             if (eventList.Count == 0)
