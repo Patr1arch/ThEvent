@@ -13,7 +13,7 @@
                     <Image x:Name="Image"
                            Margin="0"/>
                     <StackLayout BackgroundColor="#C7E0E0"
-                                 Opacity="0.6"
+                                 Opacity="0.6"  
                                  Margin="6, 0">
                         <Label x:Name="Title"
                                Margin="20"

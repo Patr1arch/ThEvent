@@ -14,22 +14,25 @@
                    Placeholder="Заголовок"/>
             <Label Text="Время"
                    HorizontalOptions="FillAndExpand"/>
-            <DatePicker x:Name="Date"/>
+            <StackLayout Orientation="Horizontal">
+                <CheckBox HorizontalOptions="Start"
+                          x:Name="timeSelector"
+                          CheckedChanged="timeSelectorCheckedChanged"/>
+                <Label Text="Указать дату"/>
+            </StackLayout>
+            <DatePicker x:Name="Date"
+                        IsEnabled="False"/>
             <Picker HorizontalOptions="FillAndExpand"
                     x:Name="tagPicker"
                     SelectedIndexChanged="ChooseTag"
                     Title="Выберете существующий тег"/>
-            <Entry HorizontalOptions="FillAndExpand"
-                   x:Name="tagInput"
-                   Placeholder="Введите новый тег"/>
-            <Button Text="Добавить тег"
-                    Clicked="AddTag"/>
             <Label Text="Список тегов"
                    HorizontalOptions="FillAndExpand"/>
             <StackLayout x:Name="tagList"
                          Orientation="Horizontal"/>
-            <StackLayout Orientation="Horizontal">
-                <CheckBox HorizontalOptions="CenterAndExpand"
+            <StackLayout Orientation="Horizontal"
+                         x:Name="pastEventsStack">
+                <CheckBox HorizontalOptions="Start"
                           x:Name="pastEvents"/>
                 <Label Text="Показывать прошедшие мероприятия"/>
             </StackLayout>
