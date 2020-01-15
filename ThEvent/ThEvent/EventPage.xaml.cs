@@ -14,9 +14,23 @@ namespace ThEvent
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EventPage : ContentPage
     {
-        public EventPage(Event currentEvent)
+        static Event currentEvent;
+        public EventPage(Event _currentEvent)
         {
+            currentEvent = _currentEvent;
             InitializeComponent();
+
+            Appearing += (s, e) =>
+            {
+                if (App.UserId == App.ANONYM_ID)
+                    return;
+
+                var check = App.Database._database.Table<UserEvents>()
+                    .Where(ue => ue.UserId == App.UserId && ue.EventId == currentEvent.Id).ToListAsync().Result;
+                if (check.Count != 0 || currentEvent.Date < DateTime.Now)
+                    Participate.IsVisible = false;
+            };
+
             var footer = Footer.getFooter();
             PageStackLayout.Children.Add(footer);
 
@@ -35,7 +49,18 @@ namespace ThEvent
 
         private void ParticipateClicked(object sender, EventArgs e)
         {
-            //TODO add data in bd
+            if (App.UserId == App.ANONYM_ID)
+            {
+                DisplayAlert("", "You are not sign in.\nIf you haven't account,\nplease, sign up", "Ok");
+                return;
+            }
+            UserEvents newUE = new UserEvents()
+            {
+                EventId = currentEvent.Id,
+                UserId = App.UserId
+            };
+            App.Database.SaveUserEventAsync(newUE);
+            DisplayAlert("", "Вы успешно зарегестирировались", "Ок");
         }
     }
 }
