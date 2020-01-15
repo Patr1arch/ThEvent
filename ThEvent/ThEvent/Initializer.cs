@@ -70,7 +70,8 @@ namespace ThEvent
                     Password = "qw",
                     Age = 20,
                     Sex = "male",
-                    Info = "there you can see your info"
+                    Info = "there you can see your info",
+                    Image = "https://whatsism.com/uploads/posts/2019-07/1563281010_83b1f339-d4cb-46d4-82d8-8a0ee692f3e0.jpeg"
                 };
                 App.Database.SaveUserAsync(newUs);
                 newUs = new User()
@@ -81,7 +82,8 @@ namespace ThEvent
                     Password = "as",
                     Age = 20,
                     Sex = "male",
-                    Info = "there you can see your info"
+                    Info = "there you can see your info",
+                    Image = "https://avatars.mds.yandex.net/get-pdb/1945878/adbb29db-f37d-4647-a535-ff6448bd9c50/s1200",
                 };
                 App.Database.SaveUserAsync(newUs);
                 newUs = new User()
@@ -92,7 +94,8 @@ namespace ThEvent
                     Password = "zx",
                     Age = 20,
                     Sex = "female",
-                    Info = "there you can see your info"
+                    Info = "there you can see your info",
+                    Image = "https://avatars.mds.yandex.net/get-pdb/1751508/9b0e0e48-4ac0-4423-a971-e612788cf3bc/s1200"
                 };
                 App.Database.SaveUserAsync(newUs);
             }
