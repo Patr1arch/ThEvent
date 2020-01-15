@@ -27,7 +27,10 @@ namespace ThEvent
             SexLabel.Text = user.Sex == "female" ? "Женский" : "Мужской";
             InfoLabel.Text = user.Info;
 
-            var eventList = App.Database.GetUser().UserEvents; 
+            var eventList = App.Database.GetUser().UserEvents;
+            eventList.Sort((lhs, rhs) =>
+                lhs.Date.CompareTo(rhs.Date));
+
             int i = 0, j = 0;
             foreach (var ev in eventList)
             {
@@ -66,21 +69,10 @@ namespace ThEvent
 
                 frame.GestureRecognizers.Add(Tap);
 
-
-                if (ev.Date < DateTime.Now)
-                {
-                    if (i++ % 2 == 0)
-                        leftBeforeStLt.Children.Add(frame);
-                    else
-                        rightBeforeStLt.Children.Add(frame);
-                }
+                if (i++ % 2 == 0)
+                    leftStLt.Children.Add(frame);
                 else
-                {
-                    if (j++ % 2 == 0)
-                        leftAfterStLt.Children.Add(frame);
-                    else
-                        rightAfterStLt.Children.Add(frame);
-                }
+                    rightStLt.Children.Add(frame);
             }
         }
 
