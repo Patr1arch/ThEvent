@@ -129,7 +129,7 @@ namespace ThEvent
             var eventTagsList = App.Database.GetEventTagsAsync().Result;
             if (eventTagsList.Count == 0)
             {
-                eventList = App.Database.GetEventsAsync();
+                eventList = App.Database.GetEventsOnly().Result;
                 tagList = App.Database.GetTagsAsync().Result;
 
                 EventTags newET = new EventTags()
@@ -155,7 +155,50 @@ namespace ThEvent
             var userEventsList = App.Database.GetUserEventsAsync().Result;
             if (userEventsList.Count == 0)
             {
+                eventList = App.Database.GetEventsOnly().Result;
+                userList = App.Database.GetUsersAsync().Result;
 
+                UserEvents newUE = new UserEvents()
+                {
+                    EventId = eventList[0].Id,
+                    UserId = userList[0].Id
+                };
+                App.Database.SaveUserEventAsync(newUE);
+                newUE = new UserEvents()
+                {
+                    EventId = eventList[0].Id,
+                    UserId = userList[1].Id
+                };
+                App.Database.SaveUserEventAsync(newUE);
+                newUE = new UserEvents()
+                {
+                    EventId = eventList[1].Id,
+                    UserId = userList[0].Id
+                };
+                App.Database.SaveUserEventAsync(newUE);
+                newUE = new UserEvents()
+                {
+                    EventId = eventList[1].Id,
+                    UserId = userList[2].Id
+                };
+                App.Database.SaveUserEventAsync(newUE);
+                newUE = new UserEvents()
+                {
+                    EventId = eventList[2].Id,
+                    UserId = userList[0].Id
+                };
+                App.Database.SaveUserEventAsync(newUE);
+                newUE = new UserEvents()
+                {
+                    EventId = eventList[2].Id,
+                    UserId = userList[1].Id
+                };
+                App.Database.SaveUserEventAsync(newUE);
+                newUE = new UserEvents()
+                {
+                    EventId = eventList[3].Id,
+                    UserId = userList[2].Id
+                };
             }
         }
     }

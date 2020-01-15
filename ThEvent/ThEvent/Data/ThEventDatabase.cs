@@ -54,10 +54,10 @@ namespace ThEvent.Data
             return _database.InsertAsync(user);
         }
 
-        /*public Task<List<Event>> GetEventsAsync()
+        public Task<List<Event>> GetEventsOnly()
         {
             return _database.Table<Event>().ToListAsync();
-        }*/
+        }
         public List<Event> GetEventsAsync()
         {
             List<Event> events = _database.Table<Event>().ToListAsync().Result;
@@ -98,7 +98,7 @@ namespace ThEvent.Data
         {
             return _database.Table<UserEvents>().ToListAsync();
         }
-        public Task<int> SaveEventTagAsync(UserEvents newUE)
+        public Task<int> SaveUserEventAsync(UserEvents newUE)
         {
             return _database.InsertAsync(newUE);
         }
