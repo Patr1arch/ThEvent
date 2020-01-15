@@ -117,6 +117,16 @@ namespace ThEvent
             App.UserId = -1;
             Navigation.PopToRootAsync();
         }
+        
+        private void FilterButtonClicked(object sender, EventArgs e)
+        {
+            FilterPage filterPage = new FilterPage();
+            filterPage.Disappearing += (sender_, e_) =>
+            {
+
+            };
+            Navigation.PushAsync(filterPage);
+        }
 
         private void AddClicked(object sender, EventArgs e)
         {

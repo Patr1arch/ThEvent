@@ -14,11 +14,13 @@
             <StackLayout Padding="0, 10, 0, 5"
                 Orientation="Horizontal">
                 <Button Text="Фильтр"
+                        x:Name="filterButton"
                         BackgroundColor="#379999"
                         TextColor="#F4F4F4"
                         HorizontalOptions="FillAndExpand"
                         Margin="6, 0, 0, 0"
                         Opacity="0.8"
+                        Clicked="FilterButtonClicked"
                         FontSize="16"/>
                 <Button Text="Применить"
                         BackgroundColor="#F4F4F4"

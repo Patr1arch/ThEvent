@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Окно фильтрации"
+             BackgroundImageSource="https://i.pinimg.com/736x/48/b8/23/48b823268493ac0990230cfa8f05bb2e--hd-samsung-more.jpg"
+             x:Class="ThEvent.FilterPage">
+    <ContentPage.Content>
+        <StackLayout Margin="10, 10, 10, 10">
+            <Entry HorizontalOptions="FillAndExpand"
+                   x:Name="filterTitle"
+                   Placeholder="Заголовок"/>
+            <Label Text="Время"
+                   HorizontalOptions="FillAndExpand"/>
+            <DatePicker x:Name="Date"/>
+            <Picker HorizontalOptions="FillAndExpand"
+                    x:Name="tagPicker"
+                    SelectedIndexChanged="ChooseTag"
+                    Title="Выберете существующий тег"/>
+            <Entry HorizontalOptions="FillAndExpand"
+                   x:Name="tagInput"
+                   Placeholder="Введите новый тег"/>
+            <Button Text="Добавить тег"
+                    Clicked="AddTag"/>
+            <Label Text="Список тегов"
+                   HorizontalOptions="FillAndExpand"/>
+            <StackLayout x:Name="tagList"
+                         Orientation="Horizontal"/>
+            <StackLayout Orientation="Horizontal">
+                <CheckBox HorizontalOptions="CenterAndExpand"
+                          x:Name="pastEvents"/>
+                <Label Text="Показывать прошедшие мероприятия"/>
+            </StackLayout>
+            <Button VerticalOptions="EndAndExpand"
+                    Text="Сохранить настройки фильтрации"
+                    Clicked="SaveFilterSettings"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
