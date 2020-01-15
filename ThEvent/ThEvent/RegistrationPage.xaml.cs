@@ -50,14 +50,14 @@ namespace ThEvent
         {
             if (password.Text == checkPassword.Text)
             {
-                password.BackgroundColor = Color.Green;
-                checkPassword.BackgroundColor = Color.Green;
+                password.BackgroundColor = Color.FromHex("#88C788");
+                checkPassword.BackgroundColor = Color.FromHex("#88C788");
                 Incorrect.IsVisible = false;
             }
             else
             {
-                password.BackgroundColor = Color.Red;
-                checkPassword.BackgroundColor = Color.Red;
+                password.BackgroundColor = Color.FromHex("#E49696");
+                checkPassword.BackgroundColor = Color.FromHex("#E49696");
             }
         }
 
@@ -69,7 +69,17 @@ namespace ThEvent
 
         private void ConfirmClicked(object sender, EventArgs e)
         {
-            string pattern = "[.\\-_a-z0-9]+@([a-z0-9][\\-a-z0-9]+\\.)+[a-z]{2,6}";       
+            var check = App.Database._database.Table<User>()
+                .Where(ev => ev.Email == Email.Text).ToListAsync().Result;
+            if (check.Count != 0)
+            {
+                Email.BackgroundColor = Color.FromHex("#E49696");
+                InvalidLogin.IsVisible = true;
+                return;
+            }
+
+
+            string pattern = "[.\\-_a-z0-9]+@([a-z0-9][\\-a-z0-9]+\\.)+[a-z]{2,6}";
 
             if (!String.IsNullOrEmpty(Name.Text) &&
                 !String.IsNullOrEmpty(SecondName.Text) &&
@@ -85,7 +95,8 @@ namespace ThEvent
                     FirstName = Name.Text,
                     SecondName = SecondName.Text,
                     Email = Email.Text,
-                    Password = password.Text
+                    Password = password.Text,
+                    IsAdmin = false
                 };
                 if (Sex.SelectedIndex == 0)
                     newUser.Sex = "male";
@@ -122,18 +133,19 @@ namespace ThEvent
             else
             {
                 Incorrect.IsVisible = true;
-                if (String.IsNullOrEmpty(Name.Text)) Name.BackgroundColor = Color.Red;
-                if (String.IsNullOrEmpty(SecondName.Text)) SecondName.BackgroundColor = Color.Red;
-                if (Sex.SelectedIndex == -1) Sex.BackgroundColor = Color.Red;
+                InvalidLogin.IsVisible = true;
+                if (String.IsNullOrEmpty(Name.Text)) Name.BackgroundColor = Color.FromHex("#E49696");
+                if (String.IsNullOrEmpty(SecondName.Text)) SecondName.BackgroundColor = Color.FromHex("#E49696");
+                if (Sex.SelectedIndex == -1) Sex.BackgroundColor = Color.FromHex("#E49696");
                 if (String.IsNullOrEmpty(Email.Text)
-                    || !Regex.Match(Email.Text, pattern, RegexOptions.IgnoreCase).Success) Email.BackgroundColor = Color.Red;
+                    || !Regex.Match(Email.Text, pattern, RegexOptions.IgnoreCase).Success) Email.BackgroundColor = Color.FromHex("#E49696");
                 if (!String.Equals(password.Text, checkPassword.Text))
                 {
-                    password.BackgroundColor = Color.Red;
-                    checkPassword.BackgroundColor = Color.Red;
+                    password.BackgroundColor = Color.FromHex("#E49696");
+                    checkPassword.BackgroundColor = Color.FromHex("#E49696");
                 }
-                if (String.IsNullOrEmpty(password.Text)) password.BackgroundColor = Color.Red;
-                if (String.IsNullOrEmpty(checkPassword.Text)) checkPassword.BackgroundColor = Color.Red;
+                if (String.IsNullOrEmpty(password.Text)) password.BackgroundColor = Color.FromHex("#E49696");
+                if (String.IsNullOrEmpty(checkPassword.Text)) checkPassword.BackgroundColor = Color.FromHex("#E49696");
             }
             
 

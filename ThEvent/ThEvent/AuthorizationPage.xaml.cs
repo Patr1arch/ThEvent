@@ -88,8 +88,8 @@ namespace ThEvent
             else
             {
                 IncorrectSignIn.IsVisible = true;
-                Email.BackgroundColor = Color.Red;
-                Password.BackgroundColor = Color.Red;
+                Email.BackgroundColor = Color.FromHex("#E49696");
+                Password.BackgroundColor = Color.FromHex("#E49696");
             }
         }
     }

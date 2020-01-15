@@ -120,11 +120,13 @@ namespace ThEvent
             var footer = Footer.getFooter();
             PageStackLayout.Children.Add(footer);
 
-            User currentUser = App.Database.GetUser();
-            if (currentUser.IsAdmin)
-                AddEventButton();
+            if (App.UserId != App.ANONYM_ID)
+            {
+                User currentUser = App.Database.GetUser();
+                if (currentUser.IsAdmin)
+                    AddEventButton();
+            }
             AddLogout();
-
             PutEvenst(null, null, new DateTime(0001, 1, 1), false);
         }
 
