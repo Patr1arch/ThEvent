@@ -75,8 +75,7 @@
                        Text="Информация"/>
                 <Label x:Name="InfoLabel"
                                TextColor="Black"
-                               FontSize="Large"
-                           Text="ФЫОлфыворфывЛФЫВЛОФЫЛОВлофыв фывОЛФЫВЛОолв фыолВЛ ФЛЫОВО фылОЛВФЛЫВов"/>
+                               FontSize="Large"/>
                 <Label TextColor="Black"
                        FontSize="Large"
                        FontAttributes="Bold"
@@ -90,16 +89,6 @@
                 </Grid.ColumnDefinitions>
                 <StackLayout x:Name="leftStLt"
                              Grid.Column="0">
-                    <Frame Padding="0">
-                        <StackLayout>
-                            <Image WidthRequest="100"
-                                   HeightRequest="100"
-                                   BackgroundColor="Red"/>
-                            <Label TextColor="Black"
-                                Text="ShortDescriptionShortDescription"/>
-                            <Label Text="Дата проведения: 12.32.32"/>
-                        </StackLayout>
-                    </Frame>
                 </StackLayout>
                 <StackLayout x:Name="rightStLt"
                              Grid.Column="1">
