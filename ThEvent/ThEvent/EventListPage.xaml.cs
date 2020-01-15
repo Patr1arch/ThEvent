@@ -12,11 +12,25 @@ namespace ThEvent
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EventListPage : ContentPage
     {
-        void PutEvenst()
+        void PutEvenst(string titlePattern, List<String> tagsList, DateTime dateTime, bool isPastEventsEnabled)
         {
+            eventStackLayout.Children.Clear();
             var eventList = App.Database.GetEventsAsync();
             eventList.Sort((lhs, rhs) =>
                 lhs.Date.CompareTo(rhs.Date));
+            if (!String.IsNullOrEmpty(titlePattern)) 
+                eventList = eventList.Where(x => x.Title.Contains(titlePattern)).ToList();
+            if (dateTime > new DateTime(0001, 1, 1))
+                eventList = eventList.Where(x => x.Date.Month == dateTime.Month && x.Date.Day == dateTime.Day && x.Date.Year == dateTime.Year).ToList();
+            else if (!isPastEventsEnabled)
+                eventList = eventList.Where(x => x.Date >= DateTime.Now).ToList();
+            if (tagsList != null && tagsList.Count != 0)
+            {
+                foreach (string tag in tagsList)
+                {
+                    eventList = eventList.Where(x => x.EventTags.Contains(x.EventTags.Find(xx => xx.Title == tag))).ToList();
+                }
+            }
 
             foreach (var ev in eventList)
             {
@@ -111,7 +125,7 @@ namespace ThEvent
                 AddEventButton();
             AddLogout();
 
-            PutEvenst();
+            PutEvenst(null, null, new DateTime(0001, 1, 1), false);
         }
 
         private void LogoutClicked(object sender, EventArgs e)
@@ -125,7 +139,7 @@ namespace ThEvent
             FilterPage filterPage = new FilterPage();
             filterPage.Disappearing += (sender_, e_) =>
             {
-
+                PutEvenst(filterPage.titlePattern, filterPage.tags, filterPage.date, filterPage.isPastEventsEnabled);
             };
             Navigation.PushAsync(filterPage);
         }
@@ -137,8 +151,13 @@ namespace ThEvent
             newAddEventPage.Disappearing += (s, a) =>
             {
                 eventStackLayout.Children.Clear();
-                PutEvenst();
+                PutEvenst(null, null, new DateTime(0001, 1, 1), false);
             };
+        }
+
+        private void ClearFilter(object sender, EventArgs e)
+        {
+            PutEvenst(null, null, new DateTime(0001, 1, 1), false);
         }
     }
 }
