@@ -21,14 +21,13 @@ namespace ThEvent
 
             var user = App.Database.GetUsersAsync().Result.Find(u => u.Id == App.UserId);
             ProfileImage.Source = new Uri(user.Image);
-            //ProfileImage.Source = ImageSource.FromUri(new Uri("https://sun9-48.userapi.com/c200828/v200828821/352cf/NHXlNXqYXow.jpg"));
             FullNameLabel.Text = user.FirstName + " " + user.SecondName;
             LoginLabel.Text = user.Email;
             AgeLabel.Text = Convert.ToString(user.Age);
             SexLabel.Text = user.Sex == "female" ? "Женский" : "Мужской";
             InfoLabel.Text = user.Info;
 
-            var eventList = new List<Models.Event>(); // Получаем из юзера 
+            var eventList = App.Database.GetUser().UserEvents; 
             int i = 0;
             foreach (var ev in eventList)
             {
@@ -58,6 +57,14 @@ namespace ThEvent
                     Padding = 0,
                     Content = stackLayout
                 };
+
+                var Tap = new TapGestureRecognizer();
+                Tap.Tapped += async (a, b) =>
+                {
+                    await Navigation.PushAsync(new EventPage(ev));
+                };
+
+                frame.GestureRecognizers.Add(Tap);
 
                 if (i++ % 2 == 0)
                     leftStLt.Children.Add(frame);
