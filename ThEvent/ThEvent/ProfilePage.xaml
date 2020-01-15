@@ -27,6 +27,9 @@
                         WidthRequest="200"
                            HeightRequest="200"
                            Grid.Column ="0"/>
+                    <Button Clicked="EditClicked"
+                        Margin="40, 20, 40, 0"
+                        Text="Редактировать"/>
                     <StackLayout Orientation="Horizontal"
                                  Margin="20, 20, 0, 0">
                         <Label TextColor="Black"

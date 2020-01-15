@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ThEvent.ProfileEditPage"
+             Title="Редактировать профиль"
+             BackgroundImageSource="https://i.pinimg.com/736x/48/b8/23/48b823268493ac0990230cfa8f05bb2e--hd-samsung-more.jpg">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="#C7E0E0"
+                     Opacity="0.7"
+                     VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand">
+                <StackLayout VerticalOptions="CenterAndExpand"
+                         HorizontalOptions="CenterAndExpand"
+                         Margin="40, 10, 50, 10">
+
+                    <Label Text="Имя"
+                   FontSize="Medium"
+                   TextColor="Black"/>
+                    <Entry x:Name="userFirstName"
+                   HorizontalOptions="Fill"/>
+
+                    <Label Text="Фамилия"
+                   Margin="0, 40, 0, 0"
+                   FontSize="Medium"
+                   TextColor="Black"/>
+                    <Entry x:Name="userSecondName"
+                   HorizontalOptions="Fill"/>
+
+                    <Label Text="Email"
+                   Margin="0, 40, 0, 0"
+                   FontSize="Medium"
+                   TextColor="Black"/>
+                    <Entry x:Name="userEmail"
+                   HorizontalOptions="Fill"/>
+
+                    <Label Text="Пол"
+                   Margin="0, 40, 0, 0"
+                   FontSize="Medium"
+                   TextColor="Black"/>
+                    <Picker x:Name="userSex"
+                        Title="Укажите пол"
+                        Margin="0, 5, 0, 0"
+                        HorizontalOptions="Fill">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Мужской</x:String>
+                                <x:String>Женский</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                    <Label Text="Инфо"
+                           Margin="0, 40, 0, 0"
+                           FontSize="Medium"
+                           TextColor="Black"/>
+                    <Editor x:Name="userInfo"
+                            AutoSize="TextChanges"
+                            HorizontalOptions="Fill"/>
+
+                    <StackLayout Orientation="Horizontal"
+                         Margin="0, 40, 20, 0"
+                         HorizontalOptions="FillAndExpand">
+                        <Button Clicked="SaveClicked"
+                            Text="Сохранить"
+                            BackgroundColor="#212D6F"
+                            Margin="0, 0, 4, 0"
+                            Opacity="0.9"
+                            TextColor="White"/>
+                        <Button Clicked="CancelClicked"
+                            HorizontalOptions="EndAndExpand"
+                            Text="Отменить"
+                            BackgroundColor="#212D6F"
+                            Opacity="0.9"
+                            Margin="4, 0, 0, 0"
+                            TextColor="White"/>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

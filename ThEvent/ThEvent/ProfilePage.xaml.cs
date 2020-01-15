@@ -31,7 +31,7 @@ namespace ThEvent
             eventList.Sort((lhs, rhs) =>
                 lhs.Date.CompareTo(rhs.Date));
 
-            int i = 0, j = 0;
+            int i = 0;
             foreach (var ev in eventList)
             {
                 var image = new Image
@@ -78,8 +78,14 @@ namespace ThEvent
 
         private void LogoutClicked(object sender, EventArgs e)
         {
-            App.UserId = -1;
+            App.UserId = App.ANONYM_ID;
             Navigation.PopToRootAsync();
+        }
+
+        private void EditClicked(object sender, EventArgs e)
+        {
+            var user = App.Database.GetUsersAsync().Result.Find(u => u.Id == App.UserId);
+            Navigation.PushAsync(new ProfileEditPage(user));
         }
     }
 }
