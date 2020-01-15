@@ -17,5 +17,13 @@ namespace ThEvent.Models
         public string Sex { get; set; }
         public int Age { get; set; }
         public string Image { get; set; }
+
+        [Ignore]
+        public List<Event> UserEvents { get; set; }
+
+        public User()
+        {
+            UserEvents = new List<Event>();
+        }
     }
 }

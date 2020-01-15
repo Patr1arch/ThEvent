@@ -73,7 +73,7 @@ namespace ThEvent
                     Info = "there you can see your info",
                     Image = "https://whatsism.com/uploads/posts/2019-07/1563281010_83b1f339-d4cb-46d4-82d8-8a0ee692f3e0.jpeg"
                 };
-                App.Database.SaveUserAsync(newUs);
+                _ = App.Database.SaveUserAsync(newUs).Result;
                 newUs = new User()
                 {
                     FirstName = "a",
@@ -85,7 +85,7 @@ namespace ThEvent
                     Info = "there you can see your info",
                     Image = "https://avatars.mds.yandex.net/get-pdb/1945878/adbb29db-f37d-4647-a535-ff6448bd9c50/s1200",
                 };
-                App.Database.SaveUserAsync(newUs);
+                _ = App.Database.SaveUserAsync(newUs).Result;
                 newUs = new User()
                 {
                     FirstName = "z",
@@ -97,7 +97,7 @@ namespace ThEvent
                     Info = "there you can see your info",
                     Image = "https://avatars.mds.yandex.net/get-pdb/1751508/9b0e0e48-4ac0-4423-a971-e612788cf3bc/s1200"
                 };
-                App.Database.SaveUserAsync(newUs);
+                _ = App.Database.SaveUserAsync(newUs).Result;
             }
 
             var tagList = App.Database.GetTagsAsync().Result;
@@ -150,7 +150,9 @@ namespace ThEvent
                     TagId = tagList[2].Id
                 };
                 App.Database.SaveEventTagAsync(newET);
-            }            
+            }
+
+            //var userEventsList = App.Database.Ge
         }
     }
 }

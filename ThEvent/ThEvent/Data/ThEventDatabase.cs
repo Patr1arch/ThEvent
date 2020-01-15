@@ -86,6 +86,13 @@ namespace ThEvent.Data
         {
             return _database.InsertAsync(newET);
         }
-        
+        public Task<List<UserEvents>> GetUserEventsAsync()
+        {
+            return _database.Table<UserEvents>().ToListAsync();
+        }
+        public Task<int> SaveEventTagAsync(UserEvents newUE)
+        {
+            return _database.InsertAsync(newUE);
+        }
     }
 }
