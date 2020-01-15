@@ -19,9 +19,59 @@
     <ContentPage.Content>
         <StackLayout x:Name="PageStackLayout"
                      BackgroundColor="#66C7E0E0">
-            <Label Text="Profile!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Grid Margin="0, 40, 0, 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Image WidthRequest="200"
+                       HeightRequest="200"
+                       BackgroundColor="Black"
+                       Grid.Column ="0">
+                </Image>
+                <StackLayout Grid.Column="1">
+                    <StackLayout Orientation="Horizontal">
+                        <Label TextColor="Black"
+                               FontSize="Large"
+                               FontAttributes="Bold">Имя: </Label>
+                        <Label x:Name="FullNameLabel"
+                               TextColor="Black"
+                               FontSize="Large"
+                           Text="Игорь"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label TextColor="Black"
+                               FontSize="Large"
+                               FontAttributes="Bold">Логин:</Label>
+                        <Label x:Name="LoginLabel"
+                               TextColor="Black"
+                               FontSize="Large"
+                           Text="Логин"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label TextColor="Black"
+                               FontSize="Large"
+                               FontAttributes="Bold">Возраст:</Label>
+                        <Label x:Name="AgeLabel"
+                               TextColor="Black"
+                               FontSize="Large"
+                           Text="0"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label TextColor="Black"
+                               FontSize="Large"
+                               FontAttributes="Bold"
+                               Text="Пол"/>
+                        <Label x:Name="SexLabel"
+                               TextColor="Black"
+                               FontSize="Large"
+                           Text="Мужской"/>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+            <StackLayout>
+                <Label>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
