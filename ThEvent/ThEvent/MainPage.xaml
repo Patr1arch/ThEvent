@@ -10,7 +10,7 @@
              NavigationPage.HasNavigationBar="false">
 
     <ContentPage.Content>
-        <StackLayout x:Name="Page_Stack_Layout">
+        <StackLayout x:Name="PageStackLayout">
             <Label Text="ThEvent"
                    Margin="0, 80, 0, 0"
                    FontSize="50"

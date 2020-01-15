@@ -6,7 +6,8 @@
              mc:Ignorable="d"
              x:Class="ThEvent.ProfilePage"
              NavigationPage.HasBackButton="False"
-             Title="Профиль">
+             Title="Профиль"
+             BackgroundImageSource="https://i.pinimg.com/736x/48/b8/23/48b823268493ac0990230cfa8f05bb2e--hd-samsung-more.jpg">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="Logout"
@@ -18,82 +19,105 @@
 
     <ContentPage.Content>
         <StackLayout x:Name="PageStackLayout"
-                     BackgroundColor="#66C7E0E0">
-            <Grid Margin="0, 40, 0, 0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Image x:Name="ProfileImage"
-                    WidthRequest="200"
-                       HeightRequest="200"
-                       Grid.Column ="0">
-                </Image>
-                <StackLayout Grid.Column="1">
-                    <StackLayout Orientation="Horizontal">
+                     BackgroundColor="#66C7E0E0"
+                     Opacity="0.9">
+            <ScrollView>
+                <StackLayout>
+                    <Image x:Name="ProfileImage"
+                        WidthRequest="200"
+                           HeightRequest="200"
+                           Grid.Column ="0"/>
+                    <StackLayout Orientation="Horizontal"
+                                 Margin="20, 20, 0, 0">
                         <Label TextColor="Black"
-                               FontSize="Large"
-                               FontAttributes="Bold"
-                               Text="Имя"/>
+                                FontSize="Large"
+                                FontAttributes="Bold"
+                                Text="Имя:"/>
                         <Label x:Name="FullNameLabel"
-                               TextColor="Black"
-                               FontSize="Large"/>
+                                TextColor="Black"
+                                FontSize="Large"/>
                     </StackLayout>
-                    <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Horizontal" 
+                                 Margin="20, 0, 0, 0">
                         <Label TextColor="Black"
-                               FontSize="Large"
-                               FontAttributes="Bold"
-                               Text="Логин"/>
+                                FontSize="Large"
+                                FontAttributes="Bold"
+                                Text="Логин:"/>
                         <Label x:Name="LoginLabel"
-                               TextColor="Black"
-                               FontSize="Large"/>
+                                TextColor="Black"
+                                FontSize="Large"/>
                     </StackLayout>
-                    <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Horizontal"
+                                 Margin="20, 20, 0, 0">
                         <Label TextColor="Black"
-                               FontSize="Large"
-                               FontAttributes="Bold"
-                               Text="Возраст"/>
+                                FontSize="Large"
+                                FontAttributes="Bold"
+                                Text="Возраст:"/>
                         <Label x:Name="AgeLabel"
-                               TextColor="Black"
-                               FontSize="Large"/>
+                                TextColor="Black"
+                                FontSize="Large"/>
                     </StackLayout>
-                    <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Horizontal"
+                                 Margin="20, 0, 0, 0">
                         <Label TextColor="Black"
-                               FontSize="Large"
-                               FontAttributes="Bold"
-                               Text="Пол"/>
+                                   FontSize="Large"
+                                   FontAttributes="Bold"
+                                   Text="Пол:"/>
                         <Label x:Name="SexLabel"
-                               TextColor="Black"
-                               FontSize="Large"/>
+                                   TextColor="Black"
+                                   FontSize="Large"/>
                     </StackLayout>
+                    <StackLayout Margin="20, 20, 0, 0">
+                        <Label TextColor="Black"
+                           FontSize="Large"
+                           FontAttributes="Bold"
+                           Text="Информация:"/>
+                        <Label x:Name="InfoLabel"
+                                   TextColor="Black"
+                                   FontSize="Large"/>
+                    </StackLayout>
+                    <Label TextColor="Black"
+                            FontSize="Large"
+                            FontAttributes="Bold"
+                            Margin="0, 20, 0, 0"
+                            Text="Грядущие мероприятия"
+                            HorizontalOptions="CenterAndExpand"/>
+                    <Grid Margin="10, 0, 10, 10"
+                          BackgroundColor="Red"
+                          VerticalOptions="StartAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout x:Name="leftBeforeStLt"
+                                 Grid.Column="0">
+                        </StackLayout>
+                        <StackLayout x:Name="rightBeforeStLt"
+                                 Grid.Column="1">
+                        </StackLayout>
+                    </Grid>
+                    
+                    <Label TextColor="Black"
+                            FontSize="Large"
+                            FontAttributes="Bold"
+                            Margin="0, 20, 0, 0"
+                            Text="Посещенные мероприятия"
+                            HorizontalOptions="CenterAndExpand"/>
+                    <Grid Margin="10, 0, 10, 10"
+                          BackgroundColor="Red">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout x:Name="leftAfterStLt"
+                                     Grid.Column="0">
+                        </StackLayout>
+                        <StackLayout x:Name="rightAfterStLt"
+                                     Grid.Column="1">
+                        </StackLayout>
+                    </Grid>
                 </StackLayout>
-            </Grid>
-            <StackLayout Margin="10, 10, 10, 0">
-                <Label TextColor="Black"
-                       FontSize="Large"
-                       FontAttributes="Bold"
-                       Text="Информация"/>
-                <Label x:Name="InfoLabel"
-                               TextColor="Black"
-                               FontSize="Large"/>
-                <Label TextColor="Black"
-                       FontSize="Large"
-                       FontAttributes="Bold"
-                       Margin="0, 0, 0, 0"
-                       Text="Посещенные мероприятия: "/>
-            </StackLayout>
-            <Grid Margin="10, 0, 10, 10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <StackLayout x:Name="leftStLt"
-                             Grid.Column="0">
-                </StackLayout>
-                <StackLayout x:Name="rightStLt"
-                             Grid.Column="1">
-                </StackLayout>
-            </Grid>
+            </ScrollView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -28,23 +28,23 @@ namespace ThEvent
             InfoLabel.Text = user.Info;
 
             var eventList = App.Database.GetUser().UserEvents; 
-            int i = 0;
+            int i = 0, j = 0;
             foreach (var ev in eventList)
             {
                 var image = new Image
                 {
-                    Source = new Uri(ev.Image),
-                    WidthRequest = 100,
-                    HeightRequest = 100
+                    Source = new Uri(ev.Image)
                 };
                 var shortDescLabel = new Label
                 {
                     TextColor = Color.Black,
-                    Text = ev.Title
+                    Text = ev.Title,
+                    Margin = new Thickness(10, 0, 0, 0)
                 };
                 var dateLabel = new Label
                 {
-                    Text = ev.Date.ToString("dd/MM/yyyy HH:mm")
+                    Text = ev.Date.ToString("dd/MM/yyyy HH:mm"),
+                    Margin = new Thickness(10, 0, 0, 0)
                 };
 
                 var stackLayout = new StackLayout
@@ -66,10 +66,21 @@ namespace ThEvent
 
                 frame.GestureRecognizers.Add(Tap);
 
-                if (i++ % 2 == 0)
-                    leftStLt.Children.Add(frame);
+
+                if (ev.Date < DateTime.Now)
+                {
+                    if (i++ % 2 == 0)
+                        leftBeforeStLt.Children.Add(frame);
+                    else
+                        rightBeforeStLt.Children.Add(frame);
+                }
                 else
-                    rightStLt.Children.Add(frame);
+                {
+                    if (j++ % 2 == 0)
+                        leftAfterStLt.Children.Add(frame);
+                    else
+                        rightAfterStLt.Children.Add(frame);
+                }
             }
         }
 

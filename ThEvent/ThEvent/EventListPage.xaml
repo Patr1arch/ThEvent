@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="ThEvent.EventListPage"
              NavigationPage.HasBackButton="False"
-             Title="МЕРОПРИЯТИЯ"
+             Title="Мероприятия"
              BackgroundImageSource="https://i.pinimg.com/736x/48/b8/23/48b823268493ac0990230cfa8f05bb2e--hd-samsung-more.jpg">
 
     <ContentPage.Content>
