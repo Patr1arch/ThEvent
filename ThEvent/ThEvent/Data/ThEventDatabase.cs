@@ -17,23 +17,31 @@ namespace ThEvent.Data
             _database.CreateTableAsync<Event>().Wait();
             _database.CreateTableAsync<Tag>().Wait();
             _database.CreateTableAsync<EventTags>().Wait();
+            _database.CreateTableAsync<UserEvents>().Wait();
         }
         public void ClearTables()
         {
-            _database.DeleteAllAsync<Event>();
-            _database.DeleteAllAsync<User>();
-            _database.DeleteAllAsync<Tag>();
-            _database.DeleteAllAsync<EventTags>();
+            _database.DeleteAllAsync<Event>().Wait();
+            _database.DeleteAllAsync<User>().Wait();
+            _database.DeleteAllAsync<Tag>().Wait();
+            _database.DeleteAllAsync<EventTags>().Wait();
+            _database.DeleteAllAsync<UserEvents>().Wait();
         }
         public void CreateTables()
         {
             _database.CreateTableAsync<Event>().Wait();
             _database.CreateTableAsync<User>().Wait();
+            _database.CreateTableAsync<Tag>().Wait();
+            _database.CreateTableAsync<EventTags>().Wait();
+            _database.CreateTableAsync<UserEvents>().Wait();
         }
         public void DropTables()
         {
             _database.DropTableAsync<User>().Wait();
             _database.DropTableAsync<Event>().Wait();
+            _database.DropTableAsync<Tag>().Wait();
+            _database.DropTableAsync<EventTags>().Wait();
+            _database.DropTableAsync<UserEvents>().Wait();
         }
 
         public Task<List<User>> GetUsersAsync()

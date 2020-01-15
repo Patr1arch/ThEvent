@@ -10,9 +10,9 @@ namespace ThEvent
     {
         public void Init()
         {
-            App.Database.ClearTables();  //for debbug
-            /*App.Database.DropTables();
-            App.Database.CreateTables();*/
+            //App.Database.ClearTables();  //for debbug
+            App.Database.DropTables();
+            App.Database.CreateTables();
 
             var eventList = App.Database.GetEventsAsync();
             if (eventList.Count == 0)
@@ -152,7 +152,11 @@ namespace ThEvent
                 App.Database.SaveEventTagAsync(newET);
             }
 
-            //var userEventsList = App.Database.Ge
+            var userEventsList = App.Database.GetUserEventsAsync().Result;
+            if (userEventsList.Count == 0)
+            {
+
+            }
         }
     }
 }
