@@ -31,7 +31,7 @@ namespace ThEvent
             }
             else
             {
-                entryCode.BackgroundColor = Color.Red;
+                entryCode.BackgroundColor = Color.FromHex("#E49696");
                 incorrectCode.IsVisible = true;
             }
         }
