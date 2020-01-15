@@ -64,13 +64,13 @@ namespace ThEvent
             {
                 User newUs = new User()
                 {
-                    FirstName = "q",
-                    SecondName = "w",
-                    Email = "q@gmail.com",
-                    Password = "qw",
+                    FirstName = "Admin",
+                    SecondName = "",
+                    Email = "admin@gmail.com",
+                    Password = "123",
                     Age = 20,
                     Sex = "male",
-                    Info = "there you can see your info",
+                    Info = "I'm admin!",
                     Image = "https://whatsism.com/uploads/posts/2019-07/1563281010_83b1f339-d4cb-46d4-82d8-8a0ee692f3e0.jpeg",
                     IsAdmin = true
                 };
@@ -158,19 +158,13 @@ namespace ThEvent
                 UserEvents newUE = new UserEvents()
                 {
                     EventId = 1,
-                    UserId = 1
-                };
-                App.Database.SaveUserEventAsync(newUE);
-                newUE = new UserEvents()
-                {
-                    EventId = 1,
                     UserId = 2
                 };
                 App.Database.SaveUserEventAsync(newUE);
                 newUE = new UserEvents()
                 {
-                    EventId = 2,
-                    UserId = 1
+                    EventId = 1,
+                    UserId = 3
                 };
                 App.Database.SaveUserEventAsync(newUE);
                 newUE = new UserEvents()
@@ -182,7 +176,7 @@ namespace ThEvent
                 newUE = new UserEvents()
                 {
                     EventId = 3,
-                    UserId = 1
+                    UserId = 3
                 };
                 App.Database.SaveUserEventAsync(newUE);
                 newUE = new UserEvents()
