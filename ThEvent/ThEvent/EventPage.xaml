@@ -34,7 +34,7 @@
                                FontSize="Medium"
                                TextColor="Black"/>
                         <Label x:Name="Address"
-                               Margin="20, 5"
+                               Margin="20, 20"
                                HorizontalOptions="EndAndExpand"
                                FontSize="Medium"
                                TextColor="Black"/>

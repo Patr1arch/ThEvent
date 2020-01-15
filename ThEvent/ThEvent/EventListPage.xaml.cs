@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using ThEvent.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -105,7 +105,9 @@ namespace ThEvent
             InitializeComponent();
             var footer = Footer.getFooter();
             PageStackLayout.Children.Add(footer);
-            if (App.UserId != App.ANONYM_ID)
+
+            User currentUser = App.Database.GetUser();
+            if (currentUser.IsAdmin)
                 AddEventButton();
             AddLogout();
 
@@ -116,6 +118,16 @@ namespace ThEvent
         {
             App.UserId = App.ANONYM_ID;
             Navigation.PopToRootAsync();
+        }
+        
+        private void FilterButtonClicked(object sender, EventArgs e)
+        {
+            FilterPage filterPage = new FilterPage();
+            filterPage.Disappearing += (sender_, e_) =>
+            {
+
+            };
+            Navigation.PushAsync(filterPage);
         }
 
         private void AddClicked(object sender, EventArgs e)
