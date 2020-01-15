@@ -12,8 +12,14 @@ namespace ThEvent
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FilterPage : ContentPage
     {
+        public List<String> tags;
+        public DateTime date;
+        public string titlePattern = null;
+        public bool isPastEventsEnabled;
+
         public FilterPage()
         {
+            tags = new List<string>();
             InitializeComponent();
             UpdateTags();          
         }
@@ -70,8 +76,24 @@ namespace ThEvent
 
         private void SaveFilterSettings(object sender, EventArgs e)
         {
-            List<Tag> tagList = App.Database.GetTagsAsync().Result;
-            var deb = 42;
+            if (Date.IsEnabled) date = Date.Date;
+            else date = new DateTime(0001, 1, 1);
+            titlePattern = filterTitle.Text;
+            foreach (Label label in tagList.Children) {
+                tags.Add(label.Text);
+            }
+            isPastEventsEnabled = pastEvents.IsChecked;
+            Navigation.PopAsync();
+        }
+
+        private void timeSelectorCheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            if (timeSelector.IsChecked)
+            {
+                Date.IsEnabled = true;
+                pastEventsStack.IsVisible = false;
+            }
+            else pastEventsStack.IsVisible = true;
         }
     }
 }

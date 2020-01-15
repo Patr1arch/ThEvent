@@ -76,44 +76,23 @@
                                    TextColor="Black"
                                    FontSize="Large"/>
                     </StackLayout>
-                    <Label TextColor="Black"
-                            FontSize="Large"
-                            FontAttributes="Bold"
-                            Margin="0, 20, 0, 0"
-                            Text="Грядущие мероприятия"
-                            HorizontalOptions="CenterAndExpand"/>
-                    <Grid Margin="10, 0, 10, 10"
-                          BackgroundColor="Red"
-                          VerticalOptions="StartAndExpand">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <StackLayout x:Name="leftBeforeStLt"
-                                 Grid.Column="0">
-                        </StackLayout>
-                        <StackLayout x:Name="rightBeforeStLt"
-                                 Grid.Column="1">
-                        </StackLayout>
-                    </Grid>
                     
                     <Label TextColor="Black"
                             FontSize="Large"
                             FontAttributes="Bold"
                             Margin="0, 20, 0, 0"
-                            Text="Посещенные мероприятия"
+                            Text="Ваши мероприятия"
                             HorizontalOptions="CenterAndExpand"/>
-                    <Grid Margin="10, 0, 10, 10"
-                          BackgroundColor="Red">
+                    <Grid Margin="10, 0, 10, 10">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <StackLayout x:Name="leftAfterStLt"
-                                     Grid.Column="0">
+                        <StackLayout x:Name="leftStLt"
+                                 Grid.Column="0">
                         </StackLayout>
-                        <StackLayout x:Name="rightAfterStLt"
-                                     Grid.Column="1">
+                        <StackLayout x:Name="rightStLt"
+                                 Grid.Column="1">
                         </StackLayout>
                     </Grid>
                 </StackLayout>
