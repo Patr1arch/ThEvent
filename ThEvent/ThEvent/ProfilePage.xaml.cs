@@ -21,6 +21,7 @@ namespace ThEvent
 
         private void LogoutClicked(object sender, EventArgs e)
         {
+            App.UserId = -1;
             Navigation.PopToRootAsync();
         }
     }

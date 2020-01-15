@@ -14,18 +14,28 @@ namespace ThEvent
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EventPage : ContentPage
     {
-        public EventPage(/*Event myEvent*/)
+        public EventPage(Event currentEvent)
         {
             InitializeComponent();
+            var footer = Footer.getFooter();
+            PageStackLayout.Children.Add(footer);
 
-            FullDescriptionLabel.Text = "ASDKHGASJDGASGKJDGASDGASGDASGDGASHDASKHDKJHSAKJDHASKJHDKJHSADKJHASKHJDKJHAS";//myEvent.FullDescription;
-            ShortDescriptionLabel.Text = "TemaTemaTemaTemaTemaTema"; //myEvent.ShortDescription;
-            EventImage.Source = ImageSource.FromUri(new Uri("https://sun9-48.userapi.com/c200828/v200828821/352cf/NHXlNXqYXow.jpg"/*myEvent.ImageURL*/));
+            Title.Text = currentEvent.Title;
+            Info.Text = currentEvent.Info;
+            Image.Source = ImageSource.FromUri(new Uri(currentEvent.Image));
+            Data.Text = "Data:  " + currentEvent.Date.ToString("dd/MM/yyyy HH:mm");
+            Address.Text = "Address:  " + currentEvent.Address;
+            Tags.Text = "Tags: ";
+            foreach(Tag t in currentEvent.EventTags)
+            {
+                Tags.Text += t.Title + ", ";
+            }
+            Tags.Text = Tags.Text.Substring(0, Tags.Text.Length - 2);
         }
 
         private void ParticipateClicked(object sender, EventArgs e)
         {
-
+            //TODO add data in bd
         }
     }
 }

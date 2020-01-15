@@ -10,47 +10,53 @@ namespace ThEvent
     {
         public void Init()
         {
-            App.Database.ClearTables();
+            App.Database.ClearTables();  //for debbug
+            /*App.Database.DropTables();
+            App.Database.CreateTables();*/
 
-            var eventList = App.Database.GetEventsAsync().Result;
+            var eventList = App.Database.GetEventsAsync();
             if (eventList.Count == 0)
             {
                 Event newEv = new Event()
                 {
                     Title = "Event 1",
                     Image = "https://sun9-48.userapi.com/c200828/v200828821/352cf/NHXlNXqYXow.jpg",
-                    FullDescription = "Here you can see full description of event",
-                    Date = new DateTime(2010, 8, 18, 0, 0, 0),
+                    Info = "Here you can see full description of event",
+                    Date = new DateTime(2010, 8, 18, 19, 0, 0),
+                    Address = "address",
                     CreatorId = 1
                 };
-                App.Database.SaveEventAsync(newEv);
+                _ = App.Database.SaveEventAsync(newEv).Result;
                 newEv = new Event()
                 {
                     Title = "Event 2",
                     Image = "https://sun9-48.userapi.com/c200828/v200828821/352cf/NHXlNXqYXow.jpg",
-                    FullDescription = "Here you can see full description of event",
-                    Date = new DateTime(2019, 4, 20, 0, 0, 0),
+                    Info = "Here you can see full description of event",
+                    Date = new DateTime(2019, 4, 20, 16, 0, 0),
+                    Address = "address",
                     CreatorId = 1
                 };
-                App.Database.SaveEventAsync(newEv);
+                _ = App.Database.SaveEventAsync(newEv).Result;
                 newEv = new Event()
                 {
                     Title = "Event 3",
                     Image = "https://sun9-48.userapi.com/c200828/v200828821/352cf/NHXlNXqYXow.jpg",
-                    FullDescription = "Here you can see full description of event",
-                    Date = new DateTime(2020, 2, 1, 0, 0, 0),
+                    Info = "Here you can see full description of event",
+                    Date = new DateTime(2020, 2, 1, 10, 0, 0),
+                    Address = "address",
                     CreatorId = 1
                 };
-                App.Database.SaveEventAsync(newEv);
+                _ = App.Database.SaveEventAsync(newEv).Result;
                 newEv = new Event()
                 {
                     Title = "Event 4",
                     Image = "https://sun9-48.userapi.com/c200828/v200828821/352cf/NHXlNXqYXow.jpg",
-                    FullDescription = "Here you can see full description of event",
-                    Date = new DateTime(2019, 10, 20, 0, 0, 0),
+                    Info = "Here you can see full description of event",
+                    Date = new DateTime(2019, 10, 20, 17, 0, 0),
+                    Address = "address",
                     CreatorId = 1
                 };
-                App.Database.SaveEventAsync(newEv);
+                _ = App.Database.SaveEventAsync(newEv).Result;
             }
 
             var userList = App.Database.GetUsersAsync().Result;
@@ -90,6 +96,58 @@ namespace ThEvent
                 };
                 App.Database.SaveUserAsync(newUs);
             }
+
+            var tagList = App.Database.GetTagsAsync().Result;
+            if (tagList.Count == 0)
+            {
+                Tag newTag = new Tag()
+                {
+                    Title = "tag 1"
+                };
+                _ = App.Database.SaveTagAsync(newTag).Result;
+                newTag = new Tag()
+                {
+                    Title = "tag 2"
+                };
+                _ = App.Database.SaveTagAsync(newTag).Result;
+                newTag = new Tag()
+                {
+                    Title = "tag 3"
+                };
+                _ = App.Database.SaveTagAsync(newTag).Result;
+                newTag = new Tag()
+                {
+                    Title = "tag 4"
+                };
+                _ = App.Database.SaveTagAsync(newTag).Result;
+            }
+
+
+            var eventTagsList = App.Database.GetEventTagsAsync().Result;
+            if (eventTagsList.Count == 0)
+            {
+                eventList = App.Database.GetEventsAsync();
+                tagList = App.Database.GetTagsAsync().Result;
+
+                EventTags newET = new EventTags()
+                {
+                    EventId = eventList[0].Id,
+                    TagId = tagList[1].Id
+                };
+                App.Database.SaveEventTagAsync(newET);
+                newET = new EventTags()
+                {
+                    EventId = eventList[1].Id,
+                    TagId = tagList[0].Id
+                };
+                App.Database.SaveEventTagAsync(newET);
+                newET = new EventTags()
+                {
+                    EventId = eventList[1].Id,
+                    TagId = tagList[2].Id
+                };
+                App.Database.SaveEventTagAsync(newET);
+            }            
         }
     }
 }

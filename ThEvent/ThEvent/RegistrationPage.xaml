@@ -4,44 +4,74 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="ThEvent.RegistrationPage" Title="Регистрация">
+             x:Class="ThEvent.RegistrationPage"
+             Title="Registration"
+             BackgroundImageSource="https://i.pinimg.com/736x/48/b8/23/48b823268493ac0990230cfa8f05bb2e--hd-samsung-more.jpg">
     <ContentPage.Content>
-        <StackLayout x:Name="Page_Stack_Layout">
-            <StackLayout Margin="10,10,10,10" VerticalOptions="CenterAndExpand">
+        <StackLayout x:Name="Page_Stack_Layout"
+                     BackgroundColor="#C7E0E0"
+                     Opacity="0.7">
+            <StackLayout Margin="30, 10, 40, 10"
+                         VerticalOptions="CenterAndExpand">
                 <Entry x:Name="Name"
                        Placeholder="Ваше имя"
+                       Margin="0, 5, 0, 0"
                        HorizontalOptions="Fill"/>
                 <Entry x:Name="SecondName"
                        Placeholder="Ваша фамилия"
+                       Margin="0, 5, 0, 0"
                        HorizontalOptions="Fill"/>
                 <Entry x:Name="Email"
                        Placeholder="Ваша почта"
+                       Margin="0, 5, 0, 0"
                        HorizontalOptions="Fill"/>
                 <Picker x:Name="Sex"
                         Title="Укажите пол"
+                        Margin="0, 5, 0, 0"
                         HorizontalOptions="Fill">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
-                            <x:String>Мужской</x:String>
-                            <x:String>Женский</x:String>
+                            <x:String>Male</x:String>
+                            <x:String>Female</x:String>
                         </x:Array>
                     </Picker.ItemsSource>
                 </Picker>
                 <Entry x:Name="password" 
                        TextChanged="Check_Password"
-                       IsPassword="True" Placeholder="Пароль" HorizontalOptions="Fill"></Entry>
-                <Entry x:Name="checkPassword" IsPassword="True" Placeholder="Повторите пароль" HorizontalOptions="Fill"
-                   TextChanged="Check_Password"></Entry>
+                       IsPassword="True"
+                       Placeholder="Пароль"
+                       Margin="0, 5, 0, 0"
+                       HorizontalOptions="Fill"/>
+                <Entry x:Name="checkPassword"
+                       IsPassword="True"
+                       Placeholder="Повторите пароль"
+                       HorizontalOptions="Fill"
+                       Margin="0, 5, 0, 0"
+                       TextChanged="Check_Password"/>
+
                 <Label x:Name="Incorrect"
                        Text="Неверные входные данные"
                        TextColor="Red"
                        FontSize="Large"
-                       IsVisible="False" />
-                <StackLayout Orientation="Horizontal">
-                    <Button Text="Зарегистрироваться"
-                            Clicked="ConfirmClicked"></Button>
-                    <Button Text="Уже есть аккаунт?" 
-                            Clicked="AuthorizationClicked"></Button>
+                       IsVisible="False"
+                       Margin="0, 10, 0, 0"/>
+                
+                <StackLayout Orientation="Horizontal"
+                             Margin="0, 40, 0, 0">
+                    <Button Text="Confirm"
+                            Padding="20, 6, 20, 6"
+                            Clicked="ConfirmClicked"
+                            HorizontalOptions="CenterAndExpand"
+                            BackgroundColor="#212D6F"
+                            Opacity="0.9"
+                            TextColor="White"/>
+                    <Button Text="Уже есть аккаунт?"
+                            HorizontalOptions="CenterAndExpand"
+                            Padding="20, 6, 20, 6"
+                            Clicked="AuthorizationClicked"
+                            BackgroundColor="#212D6F"
+                            Opacity="0.9"
+                            TextColor="White"/>
                 </StackLayout>
             </StackLayout>
         </StackLayout>

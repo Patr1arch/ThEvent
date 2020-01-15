@@ -59,8 +59,7 @@ namespace ThEvent
                 {
                     eventButton, rulesButton, contactsButton, profileButton
                 },
-                Orientation = StackOrientation.Horizontal,
-                
+                Orientation = StackOrientation.Horizontal
             };
 
             var frame = new Frame
@@ -68,7 +67,8 @@ namespace ThEvent
                 HasShadow = true,
                 VerticalOptions = LayoutOptions.EndAndExpand,
                 Content = footerStackLayout,
-                Padding = 10
+                Padding = 10,
+                Opacity = 0.8
             };
 
             return frame;

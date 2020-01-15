@@ -4,31 +4,50 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="ThEvent.EventPage">
+             x:Class="ThEvent.EventPage"
+             BackgroundImageSource="https://i.pinimg.com/736x/48/b8/23/48b823268493ac0990230cfa8f05bb2e--hd-samsung-more.jpg">
     <ContentPage.Content>
         <StackLayout x:Name="PageStackLayout">
-            <ScrollView BackgroundColor="#FA8F7F">
+            <ScrollView>
                 <StackLayout>
-                    <Image x:Name="EventImage"
+                    <Image x:Name="Image"
                            Margin="0"/>
-                    <Frame BackgroundColor="White" 
-                           Margin="20, 10, 20, 20"
-                           Padding="10">
-                        <Label x:Name="ShortDescriptionLabel"
-                               FontSize="25"
-                               TextColor="#3D3D3D"/>
-                    </Frame>
-                    <StackLayout BackgroundColor="White">
-                        <Label x:Name="FullDescriptionLabel"
-                            Margin="20"
-                               FontSize="25"
+                    <StackLayout BackgroundColor="#C7E0E0"
+                                 Opacity="0.6"
+                                 Margin="6, 0">
+                        <Label x:Name="Title"
+                               Margin="20"
+                               FontSize="30"
                                TextColor="Black"/>
-                        <Button 
-                            BackgroundColor="#FF5C5C"
-                            TextColor="#F4F4F4"
-                            Text="Принять участие!"
-                            Clicked="ParticipateClicked"
-                            Margin="40, 0"/>
+                        <Label x:Name="Info"
+                               Margin="20, 40"
+                               FontSize="22"
+                               TextColor="Black"/>
+                        <Label x:Name="Tags"
+                               Margin="20, 5"
+                               HorizontalOptions="StartAndExpand"
+                               FontSize="Medium"
+                               TextColor="Black"/>
+                        <Label x:Name="Data"
+                               Margin="20, 5"
+                               HorizontalOptions="EndAndExpand"
+                               FontSize="Medium"
+                               TextColor="Black"/>
+                        <Label x:Name="Address"
+                               Margin="20, 5"
+                               HorizontalOptions="EndAndExpand"
+                               FontSize="Medium"
+                               TextColor="Black"/>
+
+                        <Button x:Name="Participate"
+                                BackgroundColor="#212D6F"
+                                TextColor="White"
+                                FontSize="Medium"
+                                Text="Participate!"
+                                Clicked="ParticipateClicked"
+                                HorizontalOptions="CenterAndExpand"
+                                Padding="40, 0"
+                                Margin="20"/>
                     </StackLayout>
                 </StackLayout>
             </ScrollView>

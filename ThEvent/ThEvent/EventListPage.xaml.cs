@@ -12,31 +12,31 @@ namespace ThEvent
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EventListPage : ContentPage
     {
-        public EventListPage()
+        void PutEvenst()
         {
-            InitializeComponent();
-            var footer = Footer.getFooter();
-            PageStackLayout.Children.Add(footer);
+            var eventList = App.Database.GetEventsAsync();
+            eventList.Sort((lhs, rhs) =>
+                lhs.Date.CompareTo(rhs.Date));
 
-            var eventList = App.Database.GetEventsAsync().Result;
             foreach (var ev in eventList)
-            {                
+            {
                 Label HeadlineLabel = new Label
                 {
                     Text = ev.Title,
+                    FontSize = 30,
                     FontAttributes = FontAttributes.Bold,
                     TextColor = Color.Black
                 };
                 Label dateLabel = new Label
                 {
-                    Text = "" + ev.Date.ToString("MM/dd H:mm"),
+                    Text = "" + ev.Date.ToString("dd/MM/yyyy HH:mm"),
                     TextColor = Color.Gray,
                     VerticalOptions = LayoutOptions.EndAndExpand
                 };
                 StackLayout innerStackLayout = new StackLayout
                 {
                     Margin = 20,
-                    Children = {HeadlineLabel, dateLabel}
+                    Children = { HeadlineLabel, dateLabel }
                 };
 
                 Image image = new Image
@@ -57,33 +57,76 @@ namespace ThEvent
                 {
                     Padding = 0,
                     Content = mainStackLayout,
-                    Margin = new Thickness(20, 0)
+                    Margin = new Thickness(20, 2),
+                    Opacity = 0.9
                 };
 
                 var Tap = new TapGestureRecognizer();
                 Tap.Tapped += async (a, b) =>
                 {
-                    await Navigation.PushAsync(new EventPage(/*ev*/));
+                    await Navigation.PushAsync(new EventPage(ev));
                 };
 
                 frame.GestureRecognizers.Add(Tap);
 
                 eventStackLayout.Children.Add(frame);
             }
+        }
+        void AddEventButton()
+        {
+            ToolbarItem AddEvent = new ToolbarItem
+            {
+                Text = "+",
+                IconImageSource = "addEvent.png",
+                Order = ToolbarItemOrder.Primary
+            };
+            AddEvent.Clicked += (s, e) =>
+            {
+                AddClicked(s, e);
+            };
+            this.ToolbarItems.Add(AddEvent);
+        }
+        void AddLogout()
+        {
+            ToolbarItem Logout = new ToolbarItem
+            {
+                Text = "+",
+                IconImageSource = "logout.png",
+                Order = ToolbarItemOrder.Primary
+            };
+            Logout.Clicked += (s, e) =>
+            {
+                LogoutClicked(s, e);
+            };
+            this.ToolbarItems.Add(Logout);
+        }
+        public EventListPage()
+        {
+            InitializeComponent();
+            var footer = Footer.getFooter();
+            PageStackLayout.Children.Add(footer);
+            if (App.UserId != -1)
+                AddEventButton();
+            AddLogout();
 
+            PutEvenst();
         }
 
         private void LogoutClicked(object sender, EventArgs e)
         {
+            App.UserId = -1;
             Navigation.PopToRootAsync();
         }
 
         private void AddClicked(object sender, EventArgs e)
         {
-            if (App.UserId == -1)
-                DisplayAlert("Уведомление", "Чтобы иметь возможность добавить мероприятие, войдите в аккаунт", "OK");
-            else
-                Navigation.PushAsync(new AddEventListPage());
+            var newAddEventPage = new AddEventListPage();
+            Navigation.PushAsync(newAddEventPage);
+            newAddEventPage.Disappearing += (s, a) =>
+            {
+                eventStackLayout.Children.Clear();
+                PutEvenst();
+            };
         }
     }
 }
