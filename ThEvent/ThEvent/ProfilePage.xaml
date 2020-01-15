@@ -24,38 +24,38 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Image WidthRequest="200"
+                <Image x:Name="ProfileImage"
+                    WidthRequest="200"
                        HeightRequest="200"
-                       BackgroundColor="Black"
                        Grid.Column ="0">
                 </Image>
                 <StackLayout Grid.Column="1">
                     <StackLayout Orientation="Horizontal">
                         <Label TextColor="Black"
                                FontSize="Large"
-                               FontAttributes="Bold">Имя: </Label>
+                               FontAttributes="Bold"
+                               Text="Имя"/>
                         <Label x:Name="FullNameLabel"
                                TextColor="Black"
-                               FontSize="Large"
-                           Text="Игорь"/>
+                               FontSize="Large"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
                         <Label TextColor="Black"
                                FontSize="Large"
-                               FontAttributes="Bold">Логин:</Label>
+                               FontAttributes="Bold"
+                               Text="Логин"/>
                         <Label x:Name="LoginLabel"
                                TextColor="Black"
-                               FontSize="Large"
-                           Text="Логин"/>
+                               FontSize="Large"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
                         <Label TextColor="Black"
                                FontSize="Large"
-                               FontAttributes="Bold">Возраст:</Label>
+                               FontAttributes="Bold"
+                               Text="Возраст"/>
                         <Label x:Name="AgeLabel"
                                TextColor="Black"
-                               FontSize="Large"
-                           Text="0"/>
+                               FontSize="Large"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
                         <Label TextColor="Black"
@@ -64,14 +64,47 @@
                                Text="Пол"/>
                         <Label x:Name="SexLabel"
                                TextColor="Black"
-                               FontSize="Large"
-                           Text="Мужской"/>
+                               FontSize="Large"/>
                     </StackLayout>
                 </StackLayout>
             </Grid>
-            <StackLayout>
-                <Label/>
+            <StackLayout Margin="10, 10, 10, 0">
+                <Label TextColor="Black"
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                       Text="Информация"/>
+                <Label x:Name="InfoLabel"
+                               TextColor="Black"
+                               FontSize="Large"
+                           Text="ФЫОлфыворфывЛФЫВЛОФЫЛОВлофыв фывОЛФЫВЛОолв фыолВЛ ФЛЫОВО фылОЛВФЛЫВов"/>
+                <Label TextColor="Black"
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                       Margin="0, 0, 0, 0"
+                       Text="Посещенные мероприятия: "/>
             </StackLayout>
+            <Grid Margin="10, 0, 10, 10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackLayout x:Name="leftStLt"
+                             Grid.Column="0">
+                    <Frame Padding="0">
+                        <StackLayout>
+                            <Image WidthRequest="100"
+                                   HeightRequest="100"
+                                   BackgroundColor="Red"/>
+                            <Label TextColor="Black"
+                                Text="ShortDescriptionShortDescription"/>
+                            <Label Text="Дата проведения: 12.32.32"/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                <StackLayout x:Name="rightStLt"
+                             Grid.Column="1">
+                </StackLayout>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

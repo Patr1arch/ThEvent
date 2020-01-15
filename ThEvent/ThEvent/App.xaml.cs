@@ -10,7 +10,8 @@ namespace ThEvent
 {
     public partial class App : Application
     {
-        public static int UserId = -1;
+        public const int ANONYM_ID = -1;
+        public static int UserId = ANONYM_ID;
 
         static ThEventDatabase database;
         public static ThEventDatabase Database

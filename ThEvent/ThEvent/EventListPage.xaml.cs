@@ -105,7 +105,7 @@ namespace ThEvent
             InitializeComponent();
             var footer = Footer.getFooter();
             PageStackLayout.Children.Add(footer);
-            if (App.UserId != -1)
+            if (App.UserId != App.ANONYM_ID)
                 AddEventButton();
             AddLogout();
 
@@ -114,7 +114,7 @@ namespace ThEvent
 
         private void LogoutClicked(object sender, EventArgs e)
         {
-            App.UserId = -1;
+            App.UserId = App.ANONYM_ID;
             Navigation.PopToRootAsync();
         }
 

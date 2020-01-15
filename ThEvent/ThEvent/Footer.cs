@@ -50,6 +50,11 @@ namespace ThEvent
             var profileButton = createImButtonForFooter("profile.ico");
             profileButton.Clicked += async (a, b) =>
             {
+                if (App.UserId == App.ANONYM_ID)
+                {
+                    await App.Current.MainPage.DisplayAlert("Уведомление", "Чтобы просмотреть профиль, необходимо авторизоваться", "OK");
+                    return;
+                }
                 await App.Current.MainPage.Navigation.PushAsync(new ProfilePage());
             };
 
