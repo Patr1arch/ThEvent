@@ -26,7 +26,7 @@ namespace ThEvent
                     Address = "address",
                     CreatorId = 1
                 };
-                _ = App.Database.SaveEventAsync(newEv).Result;
+                _ = App.Database.SaveEventAsync(newEv);
                 newEv = new Event()
                 {
                     Title = "Event 2",
@@ -36,7 +36,7 @@ namespace ThEvent
                     Address = "address",
                     CreatorId = 1
                 };
-                _ = App.Database.SaveEventAsync(newEv).Result;
+                _ = App.Database.SaveEventAsync(newEv);
                 newEv = new Event()
                 {
                     Title = "Event 3",
@@ -46,7 +46,7 @@ namespace ThEvent
                     Address = "address",
                     CreatorId = 1
                 };
-                _ = App.Database.SaveEventAsync(newEv).Result;
+                _ = App.Database.SaveEventAsync(newEv);
                 newEv = new Event()
                 {
                     Title = "Event 4",
@@ -56,7 +56,7 @@ namespace ThEvent
                     Address = "address",
                     CreatorId = 1
                 };
-                _ = App.Database.SaveEventAsync(newEv).Result;
+                _ = App.Database.SaveEventAsync(newEv);
             }
 
             var userList = App.Database.GetUsersAsync().Result;
@@ -71,9 +71,10 @@ namespace ThEvent
                     Age = 20,
                     Sex = "male",
                     Info = "there you can see your info",
-                    Image = "https://whatsism.com/uploads/posts/2019-07/1563281010_83b1f339-d4cb-46d4-82d8-8a0ee692f3e0.jpeg"
+                    Image = "https://whatsism.com/uploads/posts/2019-07/1563281010_83b1f339-d4cb-46d4-82d8-8a0ee692f3e0.jpeg",
+                    IsAdmin = true
                 };
-                _ = App.Database.SaveUserAsync(newUs).Result;
+                _ = App.Database.SaveUserAsync(newUs);
                 newUs = new User()
                 {
                     FirstName = "a",
@@ -84,8 +85,9 @@ namespace ThEvent
                     Sex = "male",
                     Info = "there you can see your info",
                     Image = "https://avatars.mds.yandex.net/get-pdb/1945878/adbb29db-f37d-4647-a535-ff6448bd9c50/s1200",
+                    IsAdmin = false
                 };
-                _ = App.Database.SaveUserAsync(newUs).Result;
+                _ = App.Database.SaveUserAsync(newUs);
                 newUs = new User()
                 {
                     FirstName = "z",
@@ -95,9 +97,10 @@ namespace ThEvent
                     Age = 20,
                     Sex = "female",
                     Info = "there you can see your info",
-                    Image = "https://avatars.mds.yandex.net/get-pdb/1751508/9b0e0e48-4ac0-4423-a971-e612788cf3bc/s1200"
+                    Image = "https://avatars.mds.yandex.net/get-pdb/1751508/9b0e0e48-4ac0-4423-a971-e612788cf3bc/s1200",
+                    IsAdmin = false
                 };
-                _ = App.Database.SaveUserAsync(newUs).Result;
+                _ = App.Database.SaveUserAsync(newUs);
             }
 
             var tagList = App.Database.GetTagsAsync().Result;
@@ -107,47 +110,44 @@ namespace ThEvent
                 {
                     Title = "tag 1"
                 };
-                _ = App.Database.SaveTagAsync(newTag).Result;
+                _ = App.Database.SaveTagAsync(newTag);
                 newTag = new Tag()
                 {
                     Title = "tag 2"
                 };
-                _ = App.Database.SaveTagAsync(newTag).Result;
+                _ = App.Database.SaveTagAsync(newTag);
                 newTag = new Tag()
                 {
                     Title = "tag 3"
                 };
-                _ = App.Database.SaveTagAsync(newTag).Result;
+                _ = App.Database.SaveTagAsync(newTag);
                 newTag = new Tag()
                 {
                     Title = "tag 4"
                 };
-                _ = App.Database.SaveTagAsync(newTag).Result;
+                _ = App.Database.SaveTagAsync(newTag);
             }
 
 
             var eventTagsList = App.Database.GetEventTagsAsync().Result;
             if (eventTagsList.Count == 0)
             {
-                eventList = App.Database.GetEventsOnly().Result;
-                tagList = App.Database.GetTagsAsync().Result;
-
                 EventTags newET = new EventTags()
                 {
-                    EventId = eventList[0].Id,
-                    TagId = tagList[1].Id
+                    EventId = 1,
+                    TagId = 2
                 };
                 App.Database.SaveEventTagAsync(newET);
                 newET = new EventTags()
                 {
-                    EventId = eventList[1].Id,
-                    TagId = tagList[0].Id
+                    EventId = 2,
+                    TagId = 1
                 };
                 App.Database.SaveEventTagAsync(newET);
                 newET = new EventTags()
                 {
-                    EventId = eventList[1].Id,
-                    TagId = tagList[2].Id
+                    EventId = 2,
+                    TagId = 3
                 };
                 App.Database.SaveEventTagAsync(newET);
             }
@@ -155,49 +155,46 @@ namespace ThEvent
             var userEventsList = App.Database.GetUserEventsAsync().Result;
             if (userEventsList.Count == 0)
             {
-                eventList = App.Database.GetEventsOnly().Result;
-                userList = App.Database.GetUsersAsync().Result;
-
                 UserEvents newUE = new UserEvents()
                 {
-                    EventId = eventList[0].Id,
-                    UserId = userList[0].Id
+                    EventId = 1,
+                    UserId = 1
                 };
                 App.Database.SaveUserEventAsync(newUE);
                 newUE = new UserEvents()
                 {
-                    EventId = eventList[0].Id,
-                    UserId = userList[1].Id
+                    EventId = 1,
+                    UserId = 2
                 };
                 App.Database.SaveUserEventAsync(newUE);
                 newUE = new UserEvents()
                 {
-                    EventId = eventList[1].Id,
-                    UserId = userList[0].Id
+                    EventId = 2,
+                    UserId = 1
                 };
                 App.Database.SaveUserEventAsync(newUE);
                 newUE = new UserEvents()
                 {
-                    EventId = eventList[1].Id,
-                    UserId = userList[2].Id
+                    EventId = 2,
+                    UserId = 3
                 };
                 App.Database.SaveUserEventAsync(newUE);
                 newUE = new UserEvents()
                 {
-                    EventId = eventList[2].Id,
-                    UserId = userList[0].Id
+                    EventId = 3,
+                    UserId = 1
                 };
                 App.Database.SaveUserEventAsync(newUE);
                 newUE = new UserEvents()
                 {
-                    EventId = eventList[2].Id,
-                    UserId = userList[1].Id
+                    EventId = 3,
+                    UserId = 2
                 };
                 App.Database.SaveUserEventAsync(newUE);
                 newUE = new UserEvents()
                 {
-                    EventId = eventList[3].Id,
-                    UserId = userList[2].Id
+                    EventId = 4,
+                    UserId = 3
                 };
             }
         }
