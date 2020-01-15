@@ -73,6 +73,18 @@ namespace ThEvent.Data
             }
             return events;
         }
+        public Event GetEvent(int eventId)
+        {
+            Event ev = _database.Table<Event>().FirstAsync(e => e.Id == eventId).Result;
+            var tagsId = _database.Table<EventTags>().Where(et => et.EventId == ev.Id).ToListAsync().Result;
+            foreach (var id in tagsId)
+            {
+                var e = _database.Table<Tag>().FirstOrDefaultAsync(t => t.Id == id.TagId).Result;
+                if (e != null)
+                    ev.EventTags.Add(e);
+            }
+            return ev;
+        }
         public Task<int> SaveEventAsync(Event newEv)
         {
             return _database.InsertAsync(newEv);
@@ -101,6 +113,18 @@ namespace ThEvent.Data
         public Task<int> SaveUserEventAsync(UserEvents newUE)
         {
             return _database.InsertAsync(newUE);
+        }
+
+        public User GetUser()
+        {
+            User user = _database.Table<User>().FirstAsync(u => u.Id == App.UserId).Result;
+            List<UserEvents> ueIdList = _database.Table<UserEvents>().Where(ue => ue.UserId == App.UserId).ToListAsync().Result;
+            foreach (var evId in ueIdList)
+            {
+                Event ev = _database.Table<Event>().FirstAsync(e => e.Id == evId.EventId).Result;
+                user.UserEvents.Add(ev);
+            }
+            return user;
         }
     }
 }
