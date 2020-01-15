@@ -26,11 +26,6 @@
                     x:Name="tagPicker"
                     SelectedIndexChanged="ChooseTag"
                     Title="Выберете существующий тег"/>
-            <Entry HorizontalOptions="FillAndExpand"
-                   x:Name="tagInput"
-                   Placeholder="Введите новый тег"/>
-            <Button Text="Добавить тег"
-                    Clicked="AddTag"/>
             <Label Text="Список тегов"
                    HorizontalOptions="FillAndExpand"/>
             <StackLayout x:Name="tagList"
