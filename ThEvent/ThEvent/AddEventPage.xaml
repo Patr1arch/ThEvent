@@ -76,6 +76,12 @@
                     BackgroundColor="#212D6F"
                     TextColor="WhiteSmoke"
                     FontSize="Medium"/>
+            <Label Text="Данные поля обязательны"
+                   HorizontalOptions="CenterAndExpand"
+                   FontSize="Medium"
+                   x:Name="confirmError"
+                   IsVisible="False"
+                   TextColor="Red"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
