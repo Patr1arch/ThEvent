@@ -15,12 +15,14 @@
                 <StackLayout>
                     <Label Text="Title:"
                            Margin="20, 20, 20, 5"
+                           MaxLines="60"
                            FontSize="Large"/>
                     <Entry x:Name="Title"
                            Margin="20, 0, 20, 0"/>
 
                     <Label Text="Address:"
                            Margin="20, 20, 20, 5"
+                           MaxLines="30"
                            FontSize="Large"/>
                     <Entry x:Name="Address"
                            Margin="20, 0, 20, 0"/>
@@ -43,19 +45,33 @@
                     <Entry x:Name="Image"
                            Margin="20, 0, 20, 0"/>
 
+                    <Label Text="Tags:"
+                           FontSize="Large"
+                           Margin="20, 10, 20, 5"/>
                     <Picker HorizontalOptions="FillAndExpand"
+                            Margin="20, 0"
                             x:Name="tagPicker"
                             SelectedIndexChanged="ChooseTag"
                             Title="Выберете существующий тег"/>
                     <Entry HorizontalOptions="FillAndExpand"
                            x:Name="tagInput"
+                           Margin="20, 0"
                            Placeholder="Введите новый тег"/>
                     <Button Text="Добавить тег"
-                        Clicked="AddTag"/>
-                    <Label Text="Список тегов"
+                            Opacity="0.6"
+                            BackgroundColor="#212D6F"
+                            TextColor="WhiteSmoke"
+                            Margin="20, 0"
+                            Clicked="AddTag"/>
+                    <Label Text="Список тегов:"
+                           Margin="20, 0"
+                           FontSize="Medium"
                            HorizontalOptions="FillAndExpand"/>
-                    <StackLayout x:Name="tagList"
-                         Orientation="Horizontal"/>
+                    <ScrollView Orientation="Horizontal">
+                        <StackLayout x:Name="tagList"
+                                 Orientation="Horizontal"
+                                 Margin="20, 0"/>
+                    </ScrollView>
 
                     <Label Text="Info"
                            Margin="20, 20, 20, 5"
