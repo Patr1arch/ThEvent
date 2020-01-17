@@ -110,7 +110,7 @@ namespace ThEvent
                     MailAddress to = new MailAddress(newUser.Email);
                     MailMessage m = new MailMessage(from, to);
                     m.Subject = "Код авторизации";
-                    m.Body = "<h2>Код авторизации: </h2><h1>" + checkEmail.verifyCode.ToString() + "</h1><h3>Никому ему не говорите!</h3>";
+                    m.Body = "<h2>Код авторизации: </h2><h1>" + checkEmail.verifyCode.ToString() + "</h1><h3>Никому его не говорите!</h3>";
                     m.IsBodyHtml = true;
                     SmtpClient smtp = new SmtpClient("smtp.mail.ru", 2525);
                     smtp.Credentials = new NetworkCredential("thevent2020@mail.ru", "S_fgnz4P%5");
