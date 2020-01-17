@@ -38,7 +38,7 @@ namespace ThEvent
                 Label HeadlineLabel = new Label
                 {
                     Text = ev.Title,
-                    FontSize = 20,
+                    FontSize = 15,
                     FontAttributes = FontAttributes.Bold,
                     TextColor = Color.Black
                 };

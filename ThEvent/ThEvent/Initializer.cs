@@ -17,8 +17,9 @@ namespace ThEvent
             var eventList = App.Database.GetEventsAsync();
             if (eventList.Count == 0)
             {
-                Event newEv = new Event()
-                { 
+                _ = App.Database.SaveEventAsync(new Event
+                {
+                    Id = 1,
                     Title = "Фестиваль японской культуры во Владивостоке 6+",
                     Image = "https://omaikane.files.wordpress.com/2018/04/ely-melbmadfest2017-omaikane-14.jpg?w=1200",
                     Info = "Любите «Наруто» и творчество Миядзаки? " +
@@ -37,10 +38,10 @@ namespace ThEvent
                     Date = new DateTime(2020, 2, 28, 9, 0, 0),
                     Address = "Центральная площадь (площадь Борцам за власть Советов)",
                     CreatorId = 1
-                };
-                _ = App.Database.SaveEventAsync(newEv);
-                newEv = new Event()
-                { 
+                }).Result;
+                _ = App.Database.SaveEventAsync(new Event
+                {
+                    Id = 2,
                     Title = "Соревнования по спортивному ориентированию 6+",
                     Image = "https://kudago.com/media/images/event/aa/79/aa790c13fc0c1639855ef74ee79f13ef.jpg",
                     Info = "Остров Русский встречает юных и не очень любителей спортивного ориентирования! " +
@@ -52,10 +53,10 @@ namespace ThEvent
                     Date = new DateTime(2020, 1, 20, 8, 0, 0),
                     Address = "Кампус ДВФУ, главный корпус (6 уровень)",
                     CreatorId = 1
-                };
-                _ = App.Database.SaveEventAsync(newEv);
-                newEv = new Event()
+                }).Result;
+                _ = App.Database.SaveEventAsync(new Event
                 {
+                    Id = 3,
                     Title = "Благотворительный кинопросмотр в «Уссури» 0+",
                     Image = "https://st.kp.yandex.net/im/poster/1/5/2/kinopoisk.ru-The-Lion-King-1529082--o--.jpg",
                     Info = "Благотворительный фонд «Одной крови» совместно с кинотеатром «Уссури» " +
@@ -65,10 +66,10 @@ namespace ThEvent
                     Date = new DateTime(2020, 2, 12, 15, 0, 0),
                     Address = "Кинотеатр «Уссури»",
                     CreatorId = 1
-                };
-                _ = App.Database.SaveEventAsync(newEv); 
-                newEv = new Event()
+                }).Result;
+                _ = App.Database.SaveEventAsync(new Event
                 {
+                    Id = 4,
                     Title = "Вечеринка в стиле 90-ых!!! 18+",
                     Image = "https://heaclub.ru/tim/d2e75bf14e84910455579b84fc3c29ae.jpg",
                     Info = "Ностальгируете по Юрке Шатунову и Сережке Жукову? Или с тоской " +
@@ -79,10 +80,10 @@ namespace ThEvent
                     Date = new DateTime(2021, 2, 1, 21, 0, 0),
                     Address = "«San Remo»",
                     CreatorId = 1
-                };
-                _ = App.Database.SaveEventAsync(newEv);
-                newEv = new Event()
+                }).Result;
+                _ = App.Database.SaveEventAsync(new Event
                 {
+                    Id = 5,
                     Title = "Открытая лекция «Метемпсихоз в творчестве Гумилева» 12+",
                     Image = "https://alif.tv/wp-content/uploads/2017/11/gumilev.jpg",
                     Info = "В рамках проекта «Тени Серебрянного века» проводится открытая лекция " +
@@ -95,10 +96,10 @@ namespace ThEvent
                     Date = new DateTime(2020, 3, 26, 17, 0, 0),
                     Address = "Кампус ДВФУ, коворкинг «Аякс»",
                     CreatorId = 1
-                };
-                _ = App.Database.SaveEventAsync(newEv);
-                newEv = new Event()
+                }).Result;
+                _ = App.Database.SaveEventAsync(new Event
                 {
+                    Id = 6,
                     Title = "Шоу мыльных пузырей на Арбате 0+",
                     Image = "https://sun9-36.userapi.com/c200620/v200620880/3e460/IwYT_jPc39Q.jpg",
                     Info = "Маленькие звездочки из цирковой студии «Мальвина» подготовили удивительный " +
@@ -112,11 +113,11 @@ namespace ThEvent
                     " пойдут на покупку подарков детям, проходящем лечение в онкологической больнице города.",
                     Date = new DateTime(2020, 5, 6, 15, 0, 0),
                     Address = "Улица адмирала Фокина",
-                    CreatorId = 1
-                };
-                _ = App.Database.SaveEventAsync(newEv);
-                newEv = new Event()
+                    CreatorId = 5
+                }).Result;
+                _ = App.Database.SaveEventAsync(new Event
                 {
+                    Id = 7,
                     Title = "Городской субботник в Покровском парке 0+",
                     Image = "https://sun9-66.userapi.com/c858120/v858120881/158c9e/AMhYNyxhuio.jpg",
                     Info = "Дорогие друзья, приглашаем Вас принять участие в субботнике, организованном " +
@@ -127,9 +128,8 @@ namespace ThEvent
                     " субботника будут выданы памятные грамоты.",
                     Date = new DateTime(2020, 6, 21, 9, 0, 0),
                     Address = "Покровский парк",
-                    CreatorId = 1
-                };
-                _ = App.Database.SaveEventAsync(newEv);
+                    CreatorId = 1,
+                }).Result;
             }
 
             var userList = App.Database.GetUsersAsync().Result;
@@ -235,7 +235,7 @@ namespace ThEvent
                         Title = tagName,
                         Id = ++i
                     };
-                    _ = App.Database.SaveTagAsync(newTag);
+                    _ = App.Database.SaveTagAsync(newTag).Result;
                 }
             }
 
@@ -359,6 +359,36 @@ namespace ThEvent
                     EventId = 4,
                     UserId = 3
                 };
+                newUE = new UserEvents()
+                {
+                    EventId = 6,
+                    UserId = 7
+                };
+                App.Database.SaveUserEventAsync(newUE);
+                newUE = new UserEvents()
+                {
+                    EventId = 6,
+                    UserId = 6
+                };
+                App.Database.SaveUserEventAsync(newUE);
+                newUE = new UserEvents()
+                {
+                    EventId = 1,
+                    UserId = 7
+                };
+                App.Database.SaveUserEventAsync(newUE);
+                newUE = new UserEvents()
+                {
+                    EventId = 5,
+                    UserId = 3
+                };
+                App.Database.SaveUserEventAsync(newUE);
+                newUE = new UserEvents()
+                {
+                    EventId = 4,
+                    UserId = 5
+                };
+                App.Database.SaveUserEventAsync(newUE);
             }
         }
     }

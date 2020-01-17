@@ -13,6 +13,7 @@
                    FontSize="Large"/>
             <Entry Keyboard="Numeric"
                    x:Name="entryCode"
+                   MaxLength="6"
                    TextChanged="EntryCodeTextChanged"/>
             <Label Text="Код авторищации не верен!"
                    x:Name="incorrectCode"
