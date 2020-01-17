@@ -15,16 +15,16 @@
                 <StackLayout>
                     <Label Text="Title:"
                            Margin="20, 20, 20, 5"
-                           MaxLines="60"
                            FontSize="Large"/>
                     <Entry x:Name="Title"
+                           MaxLength="60"
                            Margin="20, 0, 20, 0"/>
 
                     <Label Text="Address:"
                            Margin="20, 20, 20, 5"
-                           MaxLines="30"
                            FontSize="Large"/>
                     <Entry x:Name="Address"
+                           MaxLength="100"
                            Margin="20, 0, 20, 0"/>
 
                     <Label Text="Date:"
@@ -54,6 +54,7 @@
                             SelectedIndexChanged="ChooseTag"
                             Title="Выберете существующий тег"/>
                     <Entry HorizontalOptions="FillAndExpand"
+                           MaxLength="20"
                            x:Name="tagInput"
                            Margin="20, 0"
                            Placeholder="Введите новый тег"/>
