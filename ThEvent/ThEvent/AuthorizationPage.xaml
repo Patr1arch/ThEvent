@@ -15,13 +15,13 @@
             <StackLayout VerticalOptions="CenterAndExpand"
                          HorizontalOptions="CenterAndExpand"
                          Margin="40, 10, 50, 10">
-                <Label Text="Email"
+                <Label Text="Почта"
                    FontSize="Medium"
                    TextColor="Black"/>
                 <Entry x:Name="Email"
                    Placeholder="Ваша почта"
                    HorizontalOptions="Fill"/>
-                <Label Text="Password"
+                <Label Text="Пароль"
                    Margin="0, 40, 0, 0"
                    FontSize="Medium"
                    TextColor="Black"/>
