@@ -61,6 +61,7 @@ namespace ThEvent
             };
             App.Database.SaveUserEventAsync(newUE);
             DisplayAlert("", "Вы успешно зарегестирировались", "Ок");
+            Participate.IsVisible = false;
         }
     }
 }
