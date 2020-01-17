@@ -12,13 +12,8 @@ namespace ThEvent
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProfilePage : ContentPage
     {
-        public ProfilePage()
+        void addContent()
         {
-            InitializeComponent();
-
-            var footer = Footer.getFooter();
-            PageStackLayout.Children.Add(footer);
-
             var user = App.Database.GetUsersAsync().Result.Find(u => u.Id == App.UserId);
             ProfileImage.Source = new Uri(user.Image);
             FullNameLabel.Text = user.FirstName + " " + user.SecondName;
@@ -30,8 +25,9 @@ namespace ThEvent
             var eventList = App.Database.GetUser().UserEvents;
             eventList.Sort((lhs, rhs) =>
                 lhs.Date.CompareTo(rhs.Date));
-
             int i = 0;
+            leftStLt.Children.Clear();
+            rightStLt.Children.Clear();
             foreach (var ev in eventList)
             {
                 var image = new Image
@@ -74,6 +70,18 @@ namespace ThEvent
                 else
                     rightStLt.Children.Add(frame);
             }
+        }
+        public ProfilePage()
+        {
+            InitializeComponent();
+
+            var footer = Footer.getFooter();
+            PageStackLayout.Children.Add(footer);
+
+            Appearing += (s, e) =>
+            {
+                addContent();
+            };
         }
 
         private void LogoutClicked(object sender, EventArgs e)

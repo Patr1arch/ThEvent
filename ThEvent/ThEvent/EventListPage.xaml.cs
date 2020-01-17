@@ -127,7 +127,11 @@ namespace ThEvent
                     AddEventButton();
             }
             AddLogout();
-            PutEvenst(null, null, new DateTime(0001, 1, 1), false);
+
+            Appearing += (s, e) =>
+            {
+                PutEvenst(null, null, new DateTime(0001, 1, 1), false);
+            };
         }
 
         private void LogoutClicked(object sender, EventArgs e)
