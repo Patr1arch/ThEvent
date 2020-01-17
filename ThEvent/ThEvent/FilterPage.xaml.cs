@@ -77,7 +77,11 @@ namespace ThEvent
                 Date.IsEnabled = true;
                 pastEventsStack.IsVisible = false;
             }
-            else pastEventsStack.IsVisible = true;
+            else
+            {
+                pastEventsStack.IsVisible = true;
+                Date.IsEnabled = false;
+            }
         }
     }
 }
