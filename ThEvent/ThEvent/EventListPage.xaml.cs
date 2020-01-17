@@ -37,7 +37,7 @@ namespace ThEvent
                 Label HeadlineLabel = new Label
                 {
                     Text = ev.Title,
-                    FontSize = 30,
+                    FontSize = 20,
                     FontAttributes = FontAttributes.Bold,
                     TextColor = Color.Black
                 };
@@ -58,7 +58,8 @@ namespace ThEvent
                     Source = ImageSource.FromUri(new Uri(ev.Image)),
                     HeightRequest = 140,
                     WidthRequest = 140,
-                    HorizontalOptions = LayoutOptions.EndAndExpand
+                    HorizontalOptions = LayoutOptions.EndAndExpand,
+                    Aspect = Aspect.AspectFill
                 };
 
                 StackLayout mainStackLayout = new StackLayout

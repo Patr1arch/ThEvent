@@ -32,7 +32,10 @@ namespace ThEvent
             {
                 var image = new Image
                 {
-                    Source = new Uri(ev.Image)
+                    Source = new Uri(ev.Image),
+                    HeightRequest = 200,
+                    WidthRequest = 200,
+                    Aspect = Aspect.AspectFill
                 };
                 var shortDescLabel = new Label
                 {
