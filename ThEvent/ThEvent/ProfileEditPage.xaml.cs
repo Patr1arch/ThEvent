@@ -25,11 +25,24 @@ namespace ThEvent
             userSex.SelectedIndex = user.Sex == "male" ? 0 : 1;
             userAge.Text = user.Age.ToString();
             userImage.Text = user.Image;
+
+            userFirstName.TextChanged += (sender_, e_) =>
+            {
+                userFirstName.BackgroundColor = Color.Default;
+                nameReject.IsVisible = false;
+            };
         }
         
         private void SaveClicked(object sender, EventArgs e)
         {
             // TODO check if empty fields exist
+
+            if (String.IsNullOrEmpty(userFirstName.Text))
+            {
+                nameReject.IsVisible = true;
+                userFirstName.BackgroundColor = Color.FromHex("#E49696");
+                return;
+            }
 
             _ = App.Database._database.UpdateAsync(new User
             {
@@ -38,9 +51,9 @@ namespace ThEvent
                 SecondName = userSecondName.Text,
                 Info = userInfo.Text,
                 Sex = userSex.SelectedIndex == 0 ? "male" : "female",
-                Age = int.Parse(userAge.Text),
+                Age = String.IsNullOrEmpty(userAge.Text) ? (int?)null : int.Parse(userAge.Text),
                 Password = user.Password,
-                Image = userImage.Text,
+                Image = String.IsNullOrEmpty(userImage.Text) ? "https://i.ya-webdesign.com/images/vector-avatars-default.png" : userImage.Text,
                 Email = user.Email,
                 IsAdmin = user.IsAdmin,
                 UserEvents = user.UserEvents

@@ -23,6 +23,12 @@
                     <Entry x:Name="userFirstName"
                            HorizontalOptions="Fill"/>
 
+                    <Label Text="Поле 'Имя' обязательно для заполнения"
+                           x:Name="nameReject"
+                           TextColor="Red"
+                           FontSize="Medium"
+                           IsVisible="False"/>
+
                     <Label Text="Фамилия"
                            Margin="0, 40, 0, 0"
                            FontSize="Medium"
@@ -44,7 +50,7 @@
                            TextColor="Black"/>
                     <Entry x:Name="userImage"
                            HorizontalOptions="Fill"/>
-                    
+
                     <Label Text="Возраст"
                            Margin="0, 40, 0, 0"
                            FontSize="Medium"
@@ -53,7 +59,7 @@
                            MaxLength="2"
                            Keyboard="Numeric"
                            HorizontalOptions="Fill"/>
-                    
+
                     <Label Text="Пол"
                            Margin="0, 40, 0, 0"
                            FontSize="Medium"
