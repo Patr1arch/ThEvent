@@ -15,7 +15,7 @@ namespace ThEvent.Models
         public string Password { get; set; }
         public string Info { get; set; }
         public string Sex { get; set; }
-        public int Age { get; set; }
+        public int? Age { get; set; }
         public string Image { get; set; }
         public bool IsAdmin { get; set; }
 
