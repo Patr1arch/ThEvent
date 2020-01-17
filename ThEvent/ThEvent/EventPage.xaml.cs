@@ -37,9 +37,9 @@ namespace ThEvent
             Title.Text = currentEvent.Title;
             Info.Text = currentEvent.Info;
             Image.Source = ImageSource.FromUri(new Uri(currentEvent.Image));
-            Data.Text = "Data:  " + currentEvent.Date.ToString("dd/MM/yyyy HH:mm");
-            Address.Text = "Address:  " + currentEvent.Address;
-            Tags.Text = "Tags: ";
+            Data.Text = "Дата:  " + currentEvent.Date.ToString("dd/MM/yyyy HH:mm");
+            Address.Text = "Адрес:  " + currentEvent.Address;
+            Tags.Text = "Теги: ";
             foreach(Tag t in currentEvent.EventTags)
             {
                 Tags.Text += t.Title + ", ";
@@ -51,7 +51,7 @@ namespace ThEvent
         {
             if (App.UserId == App.ANONYM_ID)
             {
-                DisplayAlert("", "You are not sign in.\nIf you haven't account,\nplease, sign up", "Ok");
+                DisplayAlert("", "Вы не авторизованы.\nЕсли у вас нет аккаунта,\nпожалуйста, зарегистрируйтесь, ", "Ок");
                 return;
             }
             UserEvents newUE = new UserEvents()

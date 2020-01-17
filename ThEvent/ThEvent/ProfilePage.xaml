@@ -11,7 +11,7 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="Logout"
-                     Text="choose city"
+                     Text="Выберите город"
                      Order="Primary"
                      IconImageSource="logout.png"
                      Clicked="LogoutClicked"/>

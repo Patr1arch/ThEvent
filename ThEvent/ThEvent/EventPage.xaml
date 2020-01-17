@@ -43,7 +43,7 @@
                                 BackgroundColor="#212D6F"
                                 TextColor="White"
                                 FontSize="Medium"
-                                Text="Participate!"
+                                Text="Участвовать!"
                                 Clicked="ParticipateClicked"
                                 HorizontalOptions="CenterAndExpand"
                                 Padding="40, 0"
