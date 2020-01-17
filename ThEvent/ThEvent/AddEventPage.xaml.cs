@@ -40,10 +40,6 @@ namespace ThEvent
         {
             //TODO check if valid values and no empty fields
 
-            foreach (Label label in tagList.Children) {
-                string tagTitle = label.Text;
-            }
-
             if (String.IsNullOrEmpty(Title.Text))
             {
                 confirmError.IsVisible = true;
@@ -67,7 +63,22 @@ namespace ThEvent
                 Address = Address.Text,
                 CreatorId = App.UserId
             };
-            App.Database.SaveEventAsync(newEv);
+
+
+            _ = App.Database._database.InsertAsync(newEv).Result;
+            int evId = App.Database._database.Table<Event>().ToListAsync().Result.LastOrDefault().Id;
+            foreach (Label label in tagList.Children)
+            {
+                string title = label.Text;
+
+                Tag tag = App.Database._database.Table<Tag>()
+                    .FirstAsync(t => t.Title == title).Result;
+                App.Database.SaveEventTagAsync(new EventTags
+                {
+                    EventId = evId,
+                    TagId = tag.Id
+                });
+            }
             Navigation.PopAsync();
         }
         private void ChooseTag(object sender, EventArgs e)
@@ -87,7 +98,7 @@ namespace ThEvent
             {
                 Tag tag = new Tag() { Title = tagName };
                 App.Database.SaveTagAsync(tag);
-            }            
+            }
             UpdateTags();
         }
 

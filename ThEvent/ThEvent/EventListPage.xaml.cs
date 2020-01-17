@@ -12,6 +12,7 @@ namespace ThEvent
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EventListPage : ContentPage
     {
+        public bool isFiltered;
         void PutEvenst(string titlePattern, List<String> tagsList, DateTime dateTime, bool isPastEventsEnabled)
         {
             eventStackLayout.Children.Clear();
@@ -28,7 +29,7 @@ namespace ThEvent
             {
                 foreach (string tag in tagsList)
                 {
-                    eventList = eventList.Where(x => x.EventTags.Contains(x.EventTags.Find(xx => xx.Title == tag))).ToList();
+                    eventList = eventList.Where(x => x.EventTags.Contains(x.EventTags.Find(t => t.Title == tag))).ToList();
                 }
             }
 
@@ -117,6 +118,7 @@ namespace ThEvent
         }
         public EventListPage()
         {
+            isFiltered = false;
             InitializeComponent();
             var footer = Footer.getFooter();
             PageStackLayout.Children.Add(footer);
@@ -131,7 +133,8 @@ namespace ThEvent
 
             Appearing += (s, e) =>
             {
-                PutEvenst(null, null, new DateTime(0001, 1, 1), false);
+                if (!isFiltered) PutEvenst(null, null, new DateTime(0001, 1, 1), false);
+                isFiltered = false;
             };
         }
 
@@ -147,6 +150,7 @@ namespace ThEvent
             filterPage.Disappearing += (sender_, e_) =>
             {
                 PutEvenst(filterPage.titlePattern, filterPage.tags, filterPage.date, filterPage.isPastEventsEnabled);
+                isFiltered = true;
             };
             Navigation.PushAsync(filterPage);
         }
@@ -160,11 +164,13 @@ namespace ThEvent
                 eventStackLayout.Children.Clear();
                 PutEvenst(null, null, new DateTime(0001, 1, 1), false);
             };
+            isFiltered = false;
         }
 
         private void ClearFilter(object sender, EventArgs e)
         {
             PutEvenst(null, null, new DateTime(0001, 1, 1), false);
+            isFiltered = false;
         }
     }
 }
