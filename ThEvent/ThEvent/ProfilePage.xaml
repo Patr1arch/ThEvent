@@ -11,7 +11,7 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="Logout"
-                     Text="choose city"
+                     Text="Выберите город"
                      Order="Primary"
                      IconImageSource="logout.png"
                      Clicked="LogoutClicked"/>
@@ -24,23 +24,29 @@
             <ScrollView>
                 <StackLayout>
                     <Image x:Name="ProfileImage"
-                        WidthRequest="200"
+                           Margin="0, 20, 0, 0"
+                           WidthRequest="200"
                            HeightRequest="200"
                            Grid.Column ="0"/>
                     <Button Clicked="EditClicked"
-                        Margin="40, 20, 40, 0"
-                        Text="Редактировать"/>
+                            Opacity="0.8"
+                            BackgroundColor="#226278"
+                            TextColor="White"
+                            Margin="40, 20, 40, 0"
+                            Text="Редактировать"/>
                     <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="FillAndExpand"
                                  Margin="20, 20, 0, 0">
                         <Label TextColor="Black"
-                                FontSize="Large"
-                                FontAttributes="Bold"
-                                Text="Имя:"/>
+                               FontSize="Large"
+                               FontAttributes="Bold"
+                               Text="Имя:"/>
                         <Label x:Name="FullNameLabel"
-                                TextColor="Black"
-                                FontSize="Large"/>
+                               TextColor="Black"
+                               FontSize="Large"/>
                     </StackLayout>
-                    <StackLayout Orientation="Horizontal" 
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="FillAndExpand"
                                  Margin="20, 0, 0, 0">
                         <Label TextColor="Black"
                                 FontSize="Large"
@@ -51,6 +57,7 @@
                                 FontSize="Large"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="FillAndExpand"
                                  Margin="20, 20, 0, 0">
                         <Label TextColor="Black"
                                 FontSize="Large"
@@ -61,6 +68,7 @@
                                 FontSize="Large"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="FillAndExpand"
                                  Margin="20, 0, 0, 0">
                         <Label TextColor="Black"
                                    FontSize="Large"

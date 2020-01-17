@@ -15,7 +15,7 @@
                          HorizontalOptions="FillAndExpand">
                 <StackLayout VerticalOptions="CenterAndExpand"
                              HorizontalOptions="CenterAndExpand"
-                             Margin="40, 10, 50, 10">
+                             Margin="40, 30, 50, 20">
 
                     <Label Text="Имя"
                            FontSize="Medium"
@@ -30,9 +30,9 @@
                            IsVisible="False"/>
 
                     <Label Text="Фамилия"
-                       Margin="0, 40, 0, 0"
-                       FontSize="Medium"
-                       TextColor="Black"/>
+                           Margin="0, 40, 0, 0"
+                           FontSize="Medium"
+                           TextColor="Black"/>
                     <Entry x:Name="userSecondName"
                            HorizontalOptions="Fill"/>
 
@@ -45,17 +45,18 @@
                            IsEnabled="False"/>
 
                     <Label Text="Картинка"
-                       Margin="0, 40, 0, 0"
-                       FontSize="Medium"
-                       TextColor="Black"/>
+                           Margin="0, 40, 0, 0"
+                           FontSize="Medium"
+                           TextColor="Black"/>
                     <Entry x:Name="userImage"
                            HorizontalOptions="Fill"/>
 
                     <Label Text="Возраст"
-                       Margin="0, 40, 0, 0"
-                       FontSize="Medium"
-                       TextColor="Black"/>
+                           Margin="0, 40, 0, 0"
+                           FontSize="Medium"
+                           TextColor="Black"/>
                     <Entry x:Name="userAge"
+                           MaxLength="2"
                            Keyboard="Numeric"
                            HorizontalOptions="Fill"/>
 
@@ -84,21 +85,19 @@
                             HorizontalOptions="Fill"/>
 
                     <StackLayout Orientation="Horizontal"
-                             Margin="0, 40, 20, 0"
-                             HorizontalOptions="FillAndExpand">
+                                 Margin="0, 40, 0, 0"
+                                 HorizontalOptions="FillAndExpand">
                         <Button Clicked="SaveClicked"
-                            Text="Сохранить"
-                            BackgroundColor="#212D6F"
-                            Margin="0, 0, 4, 0"
-                            Opacity="0.9"
-                            TextColor="White"/>
+                                Text="Сохранить"
+                                BackgroundColor="#212D6F"
+                                Opacity="0.9"
+                                TextColor="White"/>
                         <Button Clicked="CancelClicked"
-                            HorizontalOptions="EndAndExpand"
-                            Text="Отменить"
-                            BackgroundColor="#212D6F"
-                            Opacity="0.9"
-                            Margin="4, 0, 0, 0"
-                            TextColor="White"/>
+                                HorizontalOptions="EndAndExpand"
+                                Text="Отменить"
+                                BackgroundColor="#212D6F"
+                                Opacity="0.9"
+                                TextColor="White"/>
                     </StackLayout>
                 </StackLayout>
             </StackLayout>

@@ -38,8 +38,6 @@ namespace ThEvent
 
         private void ConfirmClicked(object sender, EventArgs e)
         {
-            //TODO check if valid values and no empty fields
-
             if (String.IsNullOrEmpty(Title.Text))
             {
                 confirmError.IsVisible = true;
@@ -114,7 +112,10 @@ namespace ThEvent
             }
             Label label = new Label();
             label.Text = text;
-            label.BackgroundColor = Color.Gray;
+            label.BackgroundColor = Color.FromHex("226278");
+            label.Opacity = 0.9;
+            label.Padding = new Thickness(6, 4);
+            label.TextColor = Color.White;
             var tap = new TapGestureRecognizer();
             tap.Tapped += async (sender_, e_) =>
             {

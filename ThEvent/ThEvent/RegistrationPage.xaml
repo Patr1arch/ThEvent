@@ -14,14 +14,17 @@
             <StackLayout Margin="30, 10, 40, 10"
                          VerticalOptions="CenterAndExpand">
                 <Entry x:Name="Name"
+                       MaxLength="30"
                        Placeholder="Ваше имя"
                        Margin="0, 5, 0, 0"
                        HorizontalOptions="Fill"/>
                 <Entry x:Name="SecondName"
+                       MaxLength="30"
                        Placeholder="Ваша фамилия"
                        Margin="0, 5, 0, 0"
                        HorizontalOptions="Fill"/>
                 <Entry x:Name="Email"
+                       MaxLength="30"
                        Placeholder="Ваша почта"
                        Margin="0, 5, 0, 0"
                        HorizontalOptions="Fill"/>
@@ -36,7 +39,8 @@
                         </x:Array>
                     </Picker.ItemsSource>
                 </Picker>
-                <Entry x:Name="password" 
+                <Entry x:Name="password"
+                       MaxLength="20"
                        TextChanged="Check_Password"
                        IsPassword="True"
                        Placeholder="Пароль"
@@ -44,6 +48,7 @@
                        HorizontalOptions="Fill"/>
                 <Entry x:Name="checkPassword"
                        IsPassword="True"
+                       MaxLength="20"
                        Placeholder="Повторите пароль"
                        HorizontalOptions="Fill"
                        Margin="0, 5, 0, 0"
@@ -63,8 +68,9 @@
                        Margin="0, 0, 0, 0"/>
                 
                 <StackLayout Orientation="Horizontal"
-                             Margin="0, 40, 0, 0">
-                    <Button Text="Confirm"
+                             Margin="-10, 40, 0, 0"
+                             HorizontalOptions="FillAndExpand">
+                    <Button Text="Подтвердить"
                             Padding="20, 6, 20, 6"
                             Clicked="ConfirmClicked"
                             HorizontalOptions="CenterAndExpand"

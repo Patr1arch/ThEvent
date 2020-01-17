@@ -8,37 +8,53 @@
              BackgroundImageSource="https://i.pinimg.com/736x/48/b8/23/48b823268493ac0990230cfa8f05bb2e--hd-samsung-more.jpg"
              x:Class="ThEvent.FilterPage">
     <ContentPage.Content>
-        <StackLayout Margin="10, 10, 10, 10">
-            <Entry HorizontalOptions="FillAndExpand"
-                   x:Name="filterTitle"
-                   Placeholder="Заголовок"/>
-            <Label Text="Время"
-                   HorizontalOptions="FillAndExpand"/>
-            <StackLayout Orientation="Horizontal">
-                <CheckBox HorizontalOptions="Start"
+        <StackLayout BackgroundColor="#C7E0E0"
+                     Opacity="0.7">
+            <StackLayout Margin="30, 40, 30, 30"
+                         VerticalOptions="FillAndExpand">
+                <Entry HorizontalOptions="FillAndExpand"
+                       x:Name="filterTitle"
+                       Margin="0, 10, 0, 20"
+                       MaxLength="60"
+                       Placeholder="Заголовок"/>
+                <Label Text="Время"
+                       FontSize="Medium"
+                       HorizontalOptions="FillAndExpand"/>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox HorizontalOptions="Start"
                           x:Name="timeSelector"
                           CheckedChanged="timeSelectorCheckedChanged"/>
-                <Label Text="Указать дату"/>
-            </StackLayout>
-            <DatePicker x:Name="Date"
+                    <Label Text="Указать дату"/>
+                </StackLayout>
+                <DatePicker x:Name="Date"
                         IsEnabled="False"/>
-            <Picker HorizontalOptions="FillAndExpand"
+                <Label Text="Теги: "
+                   FontSize="Large"
+                   Margin="0, 20, 0, 0"/>
+                <Picker HorizontalOptions="FillAndExpand"
                     x:Name="tagPicker"
                     SelectedIndexChanged="ChooseTag"
                     Title="Выберете существующий тег"/>
-            <Label Text="Список тегов"
+                <Label Text="Список тегов"
+                   FontSize="Medium"
                    HorizontalOptions="FillAndExpand"/>
-            <StackLayout x:Name="tagList"
+                <StackLayout x:Name="tagList"
                          Orientation="Horizontal"/>
-            <StackLayout Orientation="Horizontal"
+                <StackLayout Orientation="Horizontal"
+                         Margin="0, 20, 0, 0"
                          x:Name="pastEventsStack">
-                <CheckBox HorizontalOptions="Start"
+                    <CheckBox HorizontalOptions="Start"
                           x:Name="pastEvents"/>
-                <Label Text="Показывать прошедшие мероприятия"/>
+                    <Label Text="Показывать прошедшие мероприятия"
+                       FontSize="Medium"/>
+                </StackLayout>
+                <Button VerticalOptions="EndAndExpand"
+                        BackgroundColor="#212D6F"
+                        Opacity="0.9"
+                        TextColor="White"
+                        Text="Сохранить настройки фильтрации"
+                        Clicked="SaveFilterSettings"/>
             </StackLayout>
-            <Button VerticalOptions="EndAndExpand"
-                    Text="Сохранить настройки фильтрации"
-                    Clicked="SaveFilterSettings"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
