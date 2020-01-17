@@ -96,6 +96,7 @@ namespace ThEvent
                     SecondName = SecondName.Text,
                     Email = Email.Text,
                     Password = password.Text,
+                    Image = "https://i.ya-webdesign.com/images/vector-avatars-default.png",
                     IsAdmin = false
                 };
                 if (Sex.SelectedIndex == 0)
@@ -124,7 +125,7 @@ namespace ThEvent
                     {
                         App.Database.SaveUserAsync(newUser);
                         App.UserId = newUser.Id;
-                        Navigation.PopAsync();
+                        Navigation.PopToRootAsync();
                         Navigation.PushAsync(new EventListPage());
                     }
                 };
