@@ -10,41 +10,57 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout BackgroundColor="#C7E0E0"
-                     Opacity="0.7"
-                     VerticalOptions="FillAndExpand"
-                     HorizontalOptions="FillAndExpand">
+                         Opacity="0.7"
+                         VerticalOptions="FillAndExpand"
+                         HorizontalOptions="FillAndExpand">
                 <StackLayout VerticalOptions="CenterAndExpand"
-                         HorizontalOptions="CenterAndExpand"
-                         Margin="40, 10, 50, 10">
+                             HorizontalOptions="CenterAndExpand"
+                             Margin="40, 10, 50, 10">
 
                     <Label Text="Имя"
-                   FontSize="Medium"
-                   TextColor="Black"/>
+                           FontSize="Medium"
+                           TextColor="Black"/>
                     <Entry x:Name="userFirstName"
-                   HorizontalOptions="Fill"/>
+                           HorizontalOptions="Fill"/>
 
                     <Label Text="Фамилия"
-                   Margin="0, 40, 0, 0"
-                   FontSize="Medium"
-                   TextColor="Black"/>
+                       Margin="0, 40, 0, 0"
+                       FontSize="Medium"
+                       TextColor="Black"/>
                     <Entry x:Name="userSecondName"
-                   HorizontalOptions="Fill"/>
+                           HorizontalOptions="Fill"/>
 
                     <Label Text="Email"
-                   Margin="0, 40, 0, 0"
-                   FontSize="Medium"
-                   TextColor="Black"/>
+                           Margin="0, 40, 0, 0"
+                           FontSize="Medium"
+                           TextColor="Black"/>
                     <Entry x:Name="userEmail"
-                   HorizontalOptions="Fill"/>
+                           HorizontalOptions="Fill"
+                           IsEnabled="False"/>
 
+                    <Label Text="Картинка"
+                       Margin="0, 40, 0, 0"
+                       FontSize="Medium"
+                       TextColor="Black"/>
+                    <Entry x:Name="userImage"
+                           HorizontalOptions="Fill"/>
+                    
+                    <Label Text="Возраст"
+                       Margin="0, 40, 0, 0"
+                       FontSize="Medium"
+                       TextColor="Black"/>
+                    <Entry x:Name="userAge"
+                           Keyboard="Numeric"
+                           HorizontalOptions="Fill"/>
+                    
                     <Label Text="Пол"
-                   Margin="0, 40, 0, 0"
-                   FontSize="Medium"
-                   TextColor="Black"/>
+                           Margin="0, 40, 0, 0"
+                           FontSize="Medium"
+                           TextColor="Black"/>
                     <Picker x:Name="userSex"
-                        Title="Укажите пол"
-                        Margin="0, 5, 0, 0"
-                        HorizontalOptions="Fill">
+                            Title="Укажите пол"
+                            Margin="0, 5, 0, 0"
+                            HorizontalOptions="Fill">
                         <Picker.ItemsSource>
                             <x:Array Type="{x:Type x:String}">
                                 <x:String>Мужской</x:String>
@@ -62,8 +78,8 @@
                             HorizontalOptions="Fill"/>
 
                     <StackLayout Orientation="Horizontal"
-                         Margin="0, 40, 20, 0"
-                         HorizontalOptions="FillAndExpand">
+                             Margin="0, 40, 20, 0"
+                             HorizontalOptions="FillAndExpand">
                         <Button Clicked="SaveClicked"
                             Text="Сохранить"
                             BackgroundColor="#212D6F"
