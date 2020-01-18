@@ -15,7 +15,14 @@ namespace ThEvent
         void addContent()
         {
             var user = App.Database.GetUsersAsync().Result.Find(u => u.Id == App.UserId);
-            ProfileImage.Source = new Uri(user.Image);
+            try
+            {
+                ProfileImage.Source = new Uri(user.Image);
+            }
+            catch
+            {
+                ProfileImage.Source = new Uri("https://i.ya-webdesign.com/images/vector-avatars-default.png");
+            }
             FullNameLabel.Text = user.FirstName + " " + user.SecondName;
             LoginLabel.Text = user.Email;
             AgeLabel.Text = Convert.ToString(user.Age);

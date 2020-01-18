@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="ThEvent.RulesPage"
              NavigationPage.HasBackButton="False"
-             Title="Ифнормация о приложении"
+             Title="Информация о приложении"
              BackgroundImageSource="https://i.pinimg.com/736x/48/b8/23/48b823268493ac0990230cfa8f05bb2e--hd-samsung-more.jpg">
 
     <ContentPage.ToolbarItems>

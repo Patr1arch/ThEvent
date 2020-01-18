@@ -21,6 +21,7 @@
                            FontSize="Medium"
                            TextColor="Black"/>
                     <Entry x:Name="userFirstName"
+                           MaxLength="30"
                            HorizontalOptions="Fill"/>
 
                     <Label Text="Поле 'Имя' обязательно для заполнения"
@@ -34,6 +35,7 @@
                            FontSize="Medium"
                            TextColor="Black"/>
                     <Entry x:Name="userSecondName"
+                           MaxLength="30"
                            HorizontalOptions="Fill"/>
 
                     <Label Text="Email"
@@ -41,6 +43,7 @@
                            FontSize="Medium"
                            TextColor="Black"/>
                     <Entry x:Name="userEmail"
+                           MaxLength="30"
                            HorizontalOptions="Fill"
                            IsEnabled="False"/>
 
